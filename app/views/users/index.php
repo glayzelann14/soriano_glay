@@ -221,7 +221,7 @@
   <a href="<?=site_url('/users/update/'.$users['id']);?>" 
      class="text-blue-600 hover:underline">Update</a>
 
-  <a href="<?=site_url('/users/delete/'.$users['id']);?>"
+  <a href="<?=site_url('users/delete/'.$users['id']);?>"
      onclick="return confirm('Are you sure you want to delete this user?')"
      class="text-red-600 hover:underline">Delete</a>
 </div>

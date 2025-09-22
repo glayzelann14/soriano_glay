@@ -100,7 +100,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     {
         $this->call->model('UsersModel');
         if($this->UsersModel->delete($id)){
-            redirect();
+            redirect('users');
         } else {
             echo 'Failed to delete user.';
         }

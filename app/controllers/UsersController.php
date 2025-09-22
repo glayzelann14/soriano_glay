@@ -26,7 +26,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
             $q = trim($this->io->get('q'));
         }
 
-        $records_per_page = 5;
+        $records_per_page = 10;
 
         $user = $this->UsersModel->page($q, $records_per_page, $page);
         $data['user'] = $user['records'];

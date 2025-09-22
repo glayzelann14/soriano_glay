@@ -217,10 +217,14 @@
       <td><?=$users['username']; ?></td>
       <td><?=$users['email']; ?></td>
       <td>
-        <div class="action-btns">
-          <a href="<?=site_url('/users/update/'.$users['id']);?>">Update</a>
-          <a href="<?=site_url('/users/delete/'.$users['id']);?>">Delete</a>
-        </div>
+        <div class="action-btns flex space-x-2">
+  <a href="<?=site_url('/users/update/'.$users['id']);?>" 
+     class="text-blue-600 hover:underline">Update</a>
+
+  <a href="<?=site_url('/users/delete/'.$users['id']);?>"
+     onclick="return confirm('Are you sure you want to delete this user?')"
+     class="text-red-600 hover:underline">Delete</a>
+</div>
       </td>
     </tr>
     <?php endforeach; ?>

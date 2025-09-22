@@ -47,11 +47,11 @@
       </div>
 
       <!-- Submit -->
-      <button 
-        type="submit"
-        class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-        Create User
-      </button>
+      <button type="submit"
+  class="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition"
+  onclick="setTimeout(() => { window.location.href='<?= site_url('users'); ?>'; }, 500);">
+  Create
+</button>
     </form>
 
     <!-- Back to home -->

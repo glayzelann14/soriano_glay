@@ -42,16 +42,16 @@
       </div>
 
       <!-- Submit -->
-      <button 
-        type="submit"
-        class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-        Update User
-      </button>
+      <button type="submit"
+  class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+  onclick="setTimeout(() => { window.location.href='<?= site_url('users'); ?>'; }, 500);">
+  Update
+</button>
     </form>
 
     <!-- Back link -->
     <p class="text-center text-sm text-gray-600 mt-4">
-      <a href="<?=site_url('/users');?>" class="text-blue-600 hover:underline">← Back to Users</a>
+      <a href="<?=site_url('/');?>" class="text-blue-600 hover:underline">← Back to Users</a>
     </p>
   </div>
 

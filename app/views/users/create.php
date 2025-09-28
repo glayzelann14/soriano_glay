@@ -47,7 +47,7 @@
 
       <!-- Submit -->
       <button type="submit"
-              class="w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white font-medium py-3 rounded-xl shadow-lg transition duration-300 transform hover:-translate-y-1">
+        class="w-full bg-sky-500 hover:bg-sky-600 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
         Create User
       </button>
     </form>

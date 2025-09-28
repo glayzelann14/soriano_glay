@@ -188,7 +188,7 @@ class UserController extends Controller {
                 'created_at' => date('Y-m-d H:i:s')
             ];
 
-            if ($this->UsersModel->insert($data)) {
+            if ($this->UserModel->insert($data)) {
                 redirect('/reg/login');
             }
         }

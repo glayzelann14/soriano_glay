@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,12 +36,11 @@
       text-align: center;
       font-size: 2em;
       font-weight: 600;
-      color: #db2777; /* Same pink tone as directory */
+      color: #db2777;
       margin-bottom: 25px;
     }
 
-    .login input,
-    .login select {
+    .login input {
       width: 100%;
       padding: 14px 20px;
       margin-bottom: 18px;
@@ -121,10 +121,8 @@
           <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
         </div>
 
-        <select name="role" required>
-          <option value="user" selected>User</option>
-          <option value="admin">Admin</option>
-        </select>
+        <!-- Hidden role input to force user role -->
+        <input type="hidden" name="role" value="user">
 
         <button type="submit" id="btn">Register</button>
       </form>

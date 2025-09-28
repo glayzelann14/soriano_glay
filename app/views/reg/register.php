@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,15 +19,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb, #3b82f6);
+      background-size: 400% 400%;
+      animation: gradientFlow 12s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .login {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
       padding: 40px 35px;
       width: 420px;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       animation: fadeIn 0.8s ease-in-out;
     }
 
@@ -65,7 +74,7 @@
     .login input:focus {
       border-color: #2563eb;
       background: #fff;
-      box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
     }
 
     .login input::placeholder {
@@ -101,7 +110,7 @@
 
     #btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
     }
 
     .group {

@@ -39,18 +39,34 @@
       font-weight: 600;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
+    /* Animated gradient background */
+    body {
+      min-height: 100vh;
+      font-family: sans-serif;
+      background: linear-gradient(135deg, #a5b4fc, #60a5fa, #93c5fd, #bfdbfe);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-indigo-100 via-blue-100 to-blue-200 min-h-screen font-sans text-gray-800">
+<body class="min-h-screen text-gray-800">
 
   <!-- Navbar -->
   <nav class="bg-gradient-to-r from-indigo-600 to-blue-500 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-      <a href="#" class="text-white font-semibold text-xl tracking-wide">
-        User Management
+      <a href="#" class="text-white font-semibold text-xl tracking-wide">User Management</a>
+      <a href="<?=site_url('reg/logout');?>"
+         class="bg-white text-blue-600 font-medium px-4 py-2 rounded-lg shadow hover:bg-gray-100 transition">
+        Logout
       </a>
-      <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:underline">Logout</a>
     </div>
   </nav>
 

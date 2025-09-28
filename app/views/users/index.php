@@ -144,35 +144,37 @@
 
       <!-- Table -->
       <div class="overflow-x-auto rounded-xl border border-gray-300">
-  <table class="w-full text-center border-collapse">
-    <thead>
-      <tr class="bg-gradient-to-r from-blue-600 to-blue-400 text-white">
-        <th class="py-3 px-4">ID</th>
-        <th class="py-3 px-4">Username</th>
-        <th class="py-3 px-4">Email</th>
-        <th class="py-3 px-4">Role</th>
-        <th class="py-3 px-4">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach(html_escape($users) as $user): ?>
-        <tr class="bg-blue-50">
-          <td class="py-3 px-4"><?=($user['id']);?></td>
-          <td class="py-3 px-4"><?=($user['username']);?></td>
-          <td class="py-3 px-4"><?=($user['email']);?></td>
-          <td class="py-3 px-4"><?=($user['role']);?></td>
-          <td class="py-3 px-4 space-x-3">
-            <a href="<?=site_url('users/update/'.$user['id']);?>" 
-               class="px-4 py-2 text-sm font-medium rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition shadow">✏️ Update</a>
-            <a href="<?=site_url('users/delete/'.$user['id']);?>" 
-               onclick="return confirm('Are you sure you want to delete this record?');"
-               class="px-4 py-2 text-sm font-medium rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition shadow">🗑️ Delete</a>
-          </td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
-</div>
+        <table class="w-full text-center border-collapse">
+          <thead>
+            <tr class="bg-gradient-to-r from-blue-600 to-blue-400 text-white">
+              <th class="py-3 px-4">ID</th>
+              <th class="py-3 px-4">Username</th>
+              <th class="py-3 px-4">Email</th>
+              <th class="py-3 px-4">Role</th>
+              <th class="py-3 px-4">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach(html_escape($users) as $user): ?>
+              <tr class="table-row">
+                <td class="py-3 px-4"><?=($user['id']);?></td>
+                <td class="py-3 px-4"><?=($user['username']);?></td>
+                <td class="py-3 px-4">
+                  <span class="badge"><?=($user['email']);?></span>
+                </td>
+                <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
+                <td class="py-3 px-4 space-x-3">
+                  <a href="<?=site_url('users/update/'.$user['id']);?>" 
+                     class="px-4 py-2 text-sm font-medium rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition shadow">✏️ Update</a>
+                  <a href="<?=site_url('users/delete/'.$user['id']);?>" 
+                     onclick="return confirm('Are you sure you want to delete this record?');"
+                     class="px-4 py-2 text-sm font-medium rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition shadow">🗑️ Delete</a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
 
       <!-- Pagination -->
       <div class="mt-6 flex justify-center">

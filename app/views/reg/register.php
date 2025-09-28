@@ -5,121 +5,168 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fbcfe8, #f9a8d4, #f472b6);
+    }
+
+    .login {
+      background: #fff;
+      padding: 40px 35px;
+      width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login h2 {
+      text-align: center;
+      font-size: 1.9em;
+      font-weight: 600;
+      color: #be185d;
+      margin-bottom: 25px;
+    }
+
+    .inputBox {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login input {
+      width: 100%;
+      padding: 13px 18px;
+      margin-bottom: 18px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 1px solid #f9a8d4;
+      background: #fff0f6;
+      color: #831843;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .login input:focus {
+      border-color: #db2777;
+      background: #fff;
+      box-shadow: 0 0 6px rgba(219, 39, 119, 0.3);
+    }
+
+    .login input::placeholder {
+      color: #d63384;
+    }
+
+    .password-box {
+      position: relative;
+    }
+
+    .password-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #d63384;
+      font-size: 1.1em;
+    }
+
+    #btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ec4899, #db2777);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    #btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(236, 72, 153, 0.4);
+    }
+
+    .group {
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .group a {
+      color: #db2777;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .group a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-200">
+<body>
+  <section>
+    <div class="login">
+      <h2>Create Account</h2>
+      <form method="POST" action="<?= site_url('reg/register'); ?>" class="inputBox">
 
-  <section class="w-full flex justify-center items-center">
-    <div class="bg-white w-full max-w-md rounded-2xl shadow-xl border border-gray-200 p-10 flex flex-col gap-6">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
 
-      <h2 class="text-2xl font-semibold text-gray-800 text-center">Register</h2>
-
-      <?php if (!empty($error)): ?>
-        <div class="bg-red-100 text-red-700 border border-red-400 rounded-lg p-3 text-center text-sm">
-          <?= $error ?>
-        </div>
-      <?php endif; ?>
-
-      <form method="post" action="<?= site_url('reg/register') ?>" class="flex flex-col gap-4">
-        <!-- Full Name -->
-        <div class="relative">
-          <input 
-            type="text" 
-            placeholder="username" 
-            name="username" 
-            required 
-            class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none"
-          >
+        <div class="password-box">
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <i class="fa-solid fa-eye" id="togglePassword"></i>
         </div>
 
-        <!-- Username -->
-        <div class="relative">
-          <input 
-            type="text" 
-            placeholder="Username" 
-            name="username" 
-            required 
-            class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none"
-          >
+        <div class="password-box">
+          <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
+          <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
         </div>
 
-        <!-- Email -->
-        <div class="relative">
-          <input 
-            type="email" 
-            placeholder="Email" 
-            name="email" 
-            required 
-            class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none"
-          >
-        </div>
+        <!-- Hidden role input to force user role -->
+        <input type="hidden" name="role" value="user">
 
-        <!-- Password -->
-        <div class="relative">
-          <input 
-            type="password" 
-            placeholder="Password" 
-            name="password" 
-            id="password" 
-            required 
-            class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none"
-          >
-          <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer" id="togglePassword"></i>
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="relative">
-          <input 
-            type="password" 
-            placeholder="Confirm Password" 
-            name="confirm_password" 
-            id="confirm_password" 
-            required 
-            class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none"
-          >
-          <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer" id="toggleConfirm"></i>
-        </div>
-
-        <!-- Button -->
-        <button 
-          type="submit" 
-          id="btn" 
-          class="w-full py-3 bg-blue-600 hover:bg-blue-700 transition text-white font-medium rounded-lg"
-        >
-          Register
-        </button>
+        <button type="submit" id="btn">Register</button>
       </form>
 
-      <div class="text-center text-sm text-gray-600">
-        Already have an account? 
-        <a href="<?= site_url('reg/login'); ?>" class="text-blue-600 font-medium hover:underline">Login here</a>
+      <div class="group">
+        <p>Already have an account? <a href="<?= site_url('reg/login'); ?>">Login here</a></p>
       </div>
-
     </div>
   </section>
 
   <script>
-    // Password toggle for password + confirm password
-    const togglePassword = document.querySelector('#togglePassword');
-    const password = document.querySelector('#password');
-    const toggleConfirm = document.querySelector('#toggleConfirm');
-    const confirmPassword = document.querySelector('#confirm_password');
+    function toggleVisibility(toggleId, inputId) {
+      const toggle = document.getElementById(toggleId);
+      const input = document.getElementById(inputId);
 
-    togglePassword.addEventListener('click', function () {
-      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-      password.setAttribute('type', type);
-      this.classList.toggle('fa-eye');
-      this.classList.toggle('fa-eye-slash');
-    });
+      toggle.addEventListener('click', function () {
+        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+      });
+    }
 
-    toggleConfirm.addEventListener('click', function () {
-      const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-      confirmPassword.setAttribute('type', type);
-      this.classList.toggle('fa-eye');
-      this.classList.toggle('fa-eye-slash');
-    });
+    toggleVisibility('togglePassword', 'password');
+    toggleVisibility('toggleConfirmPassword', 'confirmPassword');
   </script>
-
 </body>
 </html>
+```

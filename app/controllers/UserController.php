@@ -172,33 +172,29 @@ class UserController extends Controller {
         }
     }
 
-    public function register()
+     public function register()
     {
-        $this->call->model('UserModel');
+        $this->call->model('UsersModel'); // load model
 
-        if ($this->io->method() === 'post') {
+        if ($this->io->method() == 'post') {
             $username = $this->io->post('username');
-            $email    = $this->io->post('email');
             $password = password_hash($this->io->post('password'), PASSWORD_BCRYPT);
-
-            // Normal registration defaults to 'user' role
-            $role = 'user';
 
             $data = [
                 'username' => $username,
-                'email'    => $email,
+                'email'    => $this->io->post('email'),
                 'password' => $password,
-                'role'     => $role
+                'role'     => $this->io->post('role'),
+                'created_at' => date('Y-m-d H:i:s')
             ];
 
-            if ($this->UserModel->insert($data)) {
+            if ($this->UsersModel->insert($data)) {
                 redirect('/reg/login');
             }
         }
 
         $this->call->view('/reg/register');
     }
-
     public function login()
     {
         $this->call->library('reg');

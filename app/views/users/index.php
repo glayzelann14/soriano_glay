@@ -47,9 +47,8 @@
   <!-- Navbar -->
   <nav class="bg-gradient-to-r from-indigo-600 to-blue-500 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-      <a href="#" class="text-white font-semibold text-xl tracking-wide flex items-center gap-2">
-        <img src="<?=base_url();?>/public/lavalust-icon.png" alt="Lavalust Logo" class="w-6 h-6">
-        Lavalust User Management
+      <a href="#" class="text-white font-semibold text-xl tracking-wide">
+        User Management
       </a>
       <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:underline">Logout</a>
     </div>
@@ -61,8 +60,7 @@
 
       <!-- Logged In User Display -->
       <?php if(!empty($logged_in_user)): ?>
-        <div class="mb-8 flex items-center gap-4 bg-gradient-to-r from-indigo-600 to-blue-500 text-white px-6 py-5 rounded-2xl shadow-lg">
-          <img src="<?=base_url();?>/public/lavalust-icon.png" alt="Lavalust Logo" class="w-12 h-12">
+        <div class="mb-8 flex flex-col md:flex-row md:items-center gap-4 bg-gradient-to-r from-indigo-600 to-blue-500 text-white px-6 py-5 rounded-2xl shadow-lg">
           <div>
             <h2 class="text-2xl md:text-3xl font-bold">
               Welcome, <span class="underline"><?= html_escape($logged_in_user['username']); ?></span>!

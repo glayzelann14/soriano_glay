@@ -35,6 +35,7 @@
 
     table th {
       background: linear-gradient(to right, #2563eb, #1e40af);
+      color: white;
     }
 
     .badge {
@@ -63,6 +64,41 @@
       background: rgba(59, 130, 246, 0.1);
       transform: translateX(3px);
       transition: all 0.3s ease;
+    }
+
+    /* PAGINATION */
+    .pagination {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: nowrap;
+    }
+
+    .pagination a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #2563eb;
+      color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .pagination a:hover {
+      background-color: #1d4ed8;
+    }
+
+    .pagination strong {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #1e40af;
+      color: white;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -110,7 +146,7 @@
       <div class="overflow-x-auto rounded-xl border border-gray-300">
         <table class="w-full text-center border-collapse">
           <thead>
-            <tr class="text-white">
+            <tr class="bg-gradient-to-r from-blue-600 to-blue-400 text-white">
               <th class="py-3 px-4">ID</th>
               <th class="py-3 px-4">Username</th>
               <th class="py-3 px-4">Email</th>
@@ -118,7 +154,7 @@
               <th class="py-3 px-4">Action</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-200">
+          <tbody>
             <?php foreach(html_escape($users) as $user): ?>
               <tr class="table-row">
                 <td class="py-3 px-4"><?=($user['id']);?></td>
@@ -140,7 +176,7 @@
         </table>
       </div>
 
-      <!-- Pagination (KEEP ORIGINAL FORMAT) -->
+      <!-- Pagination -->
       <div class="mt-6 flex justify-center">
         <div class="pagination">
           <?= $page; ?>

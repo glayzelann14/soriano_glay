@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,6 +92,7 @@
           <thead>
             <tr class="bg-gradient-to-r from-pink-600 to-pink-400 text-white">
               <th class="py-3 px-4">ID</th>
+             
               <th class="py-3 px-4">Username</th>
               <th class="py-3 px-4">Email</th>
               <th class="py-3 px-4">Role</th>
@@ -103,28 +103,27 @@
             <?php foreach(html_escape($users) as $user): ?>
               <tr class="hover:bg-pink-50 transition duration-200">
                 <td class="py-3 px-4"><?=($user['id']);?></td>
+               
                 <td class="py-3 px-4"><?=($user['username']);?></td>
+                
                 <td class="py-3 px-4">
                   <span class="bg-pink-100 text-pink-700 text-sm font-medium px-3 py-1 rounded-full">
                     <?=($user['email']);?>
                   </span>
                 </td>
-                <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
+                <td class="py-3 px-4 font-medium">
+                  <?=($user['role']);?>
+                </td>
                 <td class="py-3 px-4 space-x-3">
-                  <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['id']): ?>
-                    <a href="<?=site_url('users/update/'.$user['id']);?>"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-pink-400 text-white hover:bg-pink-500 transition duration-200 shadow">
-                      ✏️ Update
-                    </a>
-                  <?php endif; ?>
-
-                  <?php if($logged_in_user['role'] === 'admin'): ?>
-                    <a href="<?=site_url('users/delete/'.$user['id']);?>"
-                       onclick="return confirm('Are you sure you want to delete this record?');"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-pink-600 text-white hover:bg-pink-700 transition duration-200 shadow">
-                      🗑️ Delete
-                    </a>
-                  <?php endif; ?>
+                  <a href="<?=site_url('users/update/'.$user['id']);?>"
+                     class="px-4 py-2 text-sm font-medium rounded-lg bg-pink-400 text-white hover:bg-pink-500 transition duration-200 shadow">
+                    ✏️ Update
+                  </a>
+                  <a href="<?=site_url('users/delete/'.$user['id']);?>"
+                     onclick="return confirm('Are you sure you want to delete this record?');"
+                     class="px-4 py-2 text-sm font-medium rounded-lg bg-pink-600 text-white hover:bg-pink-700 transition duration-200 shadow">
+                    🗑️ Delete
+                  </a>
                 </td>
               </tr>
             <?php endforeach; ?>

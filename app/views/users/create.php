@@ -1,9 +1,3 @@
-<?php
-// Ensure $logged_in_user is defined to avoid undefined variable error
-if (!isset($logged_in_user)) {
-    $logged_in_user = ['role' => 'user']; // default to normal user if not set
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,19 +35,14 @@ if (!isset($logged_in_user)) {
       </div>
 
       <!-- Role -->
-      <?php if($logged_in_user['role'] === 'admin'): ?>
-        <div>
-          <select name="role" required
-                  class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
-            <option value="" disabled selected>Select Role</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-      <?php else: ?>
-        <!-- Normal users can only create a user account -->
-        <input type="hidden" name="role" value="user">
-      <?php endif; ?>
+      <div>
+        <select name="role" required
+                class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
+          <option value="" disabled selected>Select Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
 
       <!-- Submit -->
       <button type="submit"

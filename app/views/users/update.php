@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +27,8 @@
                class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
       </div>
 
+      <!-- Role (only if admin) -->
       <?php if(!empty($logged_in_user) && $logged_in_user['role'] === 'admin'): ?>
-        <!-- Role Dropdown for Admins -->
         <div>
           <label class="block text-pink-600 mb-1">Role</label>
           <select name="role" required
@@ -39,12 +38,11 @@
           </select>
         </div>
 
-        <!-- Password Field for Admins -->
+        <!-- Password with working eye icon -->
         <div class="relative">
           <label class="block text-pink-600 mb-1">Password</label>
           <input type="password" name="password" id="password"
-                 placeholder="Leave blank to keep current password"
-                 class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
+                 class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800" required>
           <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-pink-600" id="togglePassword"></i>
         </div>
       <?php endif; ?>

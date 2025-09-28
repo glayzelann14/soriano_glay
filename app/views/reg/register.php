@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,58 +14,42 @@
       font-family: "Poppins", sans-serif;
     }
 
-    body {
-      min-height: 100vh;
+    body, section {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #fbcfe8, #fce7f3, #f9a8d4);
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #fbcfe8, #f9a8d4, #f472b6);
     }
 
     .login {
-      background: #fff;
-      padding: 40px 35px;
-      width: 420px;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 0.8s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      background: white;
+      padding: 50px 40px;
+      width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: 1px solid #f9a8d4;
     }
 
     .login h2 {
       text-align: center;
-      font-size: 1.9em;
+      font-size: 2em;
       font-weight: 600;
-      color: #be185d;
+      color: #db2777;
       margin-bottom: 25px;
-    }
-
-    .inputBox {
-      display: flex;
-      flex-direction: column;
     }
 
     .login input {
       width: 100%;
-      padding: 13px 18px;
+      padding: 14px 20px;
       margin-bottom: 18px;
-      font-size: 1em;
-      border-radius: 10px;
-      border: 1px solid #f9a8d4;
-      background: #fff0f6;
-      color: #831843;
+      font-size: 1.05em;
+      border-radius: 8px;
+      border: 1px solid #fbcfe8;
+      background: #fdf2f8;
+      color: #a21caf;
       outline: none;
-      transition: all 0.2s ease;
-    }
-
-    .login input:focus {
-      border-color: #db2777;
-      background: #fff;
-      box-shadow: 0 0 6px rgba(219, 39, 119, 0.3);
     }
 
     .login input::placeholder {
@@ -83,34 +67,32 @@
       transform: translateY(-50%);
       cursor: pointer;
       color: #d63384;
-      font-size: 1.1em;
     }
 
     #btn {
       width: 100%;
-      padding: 14px;
-      font-size: 1.1em;
-      font-weight: 600;
+      padding: 15px;
+      font-size: 1.2em;
+      font-weight: 500;
       border: none;
       border-radius: 10px;
-      background: linear-gradient(135deg, #ec4899, #db2777);
+      background: #ec4899;
       color: white;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     #btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(236, 72, 153, 0.4);
+      background: #db2777;
     }
 
     .group {
       text-align: center;
-      margin-top: 18px;
+      margin-top: 10px;
     }
 
     .group a {
-      color: #db2777;
+      color: #d63384;
       text-decoration: none;
       font-weight: 500;
     }
@@ -123,7 +105,7 @@
 <body>
   <section>
     <div class="login">
-      <h2>Create Account</h2>
+      <h2>Register</h2>
       <form method="POST" action="<?= site_url('reg/register'); ?>" class="inputBox">
 
         <input type="text" name="username" placeholder="Username" required>
@@ -169,4 +151,3 @@
   </script>
 </body>
 </html>
-```

@@ -174,7 +174,7 @@ class UserController extends Controller {
 
      public function register()
     {
-        $this->call->model('UsersModel'); // load model
+        $this->call->model('UserModel'); // load model
 
         if ($this->io->method() == 'post') {
             $username = $this->io->post('username');
@@ -184,8 +184,7 @@ class UserController extends Controller {
                 'username' => $username,
                 'email'    => $this->io->post('email'),
                 'password' => $password,
-                'role'     => $this->io->post('role'),
-                'created_at' => date('Y-m-d H:i:s')
+                'role'     => $this->io->post('role')
             ];
 
             if ($this->UserModel->insert($data)) {

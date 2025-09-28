@@ -59,16 +59,18 @@
     }
 
     .login input {
-      width: 100%;
-      padding: 13px 18px;
-      font-size: 1em;
-      border-radius: 10px;
-      border: 1px solid #cbd5e1;
-      background: #f8fafc;
-      color: #1e293b;
-      outline: none;
-      transition: all 0.2s ease;
-    }
+    width: 100%;
+    padding: 13px 18px;
+    margin-bottom: 18px; /* dagdag na spacing sa pagitan ng inputs */
+    font-size: 1em;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
 
     .login input:focus {
       border-color: #2563eb;
@@ -91,16 +93,17 @@
     }
 
     #btn {
-      width: 100%;
-      padding: 14px;
-      font-size: 1.1em;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px; /* spacing sa itaas ng button */
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
     #btn:hover {

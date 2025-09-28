@@ -48,7 +48,6 @@
       background-size: 400% 400%;
       animation: gradientFlow 15s ease infinite;
     }
-
     @keyframes gradientFlow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -132,15 +131,20 @@
                 <td class="py-3 px-4"><?=($user['email']);?></td>
                 <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
                 <td class="py-3 px-4 space-x-3">
-                  <a href="<?=site_url('users/update/'.$user['id']);?>"
-                     class="px-4 py-2 text-sm font-medium rounded-lg bg-indigo-400 text-white hover:bg-indigo-500 transition duration-200 shadow">
-                    ✏️ Update
-                  </a>
-                  <a href="<?=site_url('users/delete/'.$user['id']);?>"
-                     onclick="return confirm('Are you sure you want to delete this record?');"
-                     class="px-4 py-2 text-sm font-medium rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition duration-200 shadow">
-                    🗑️ Delete
-                  </a>
+                  <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] === $user['id']): ?>
+                    <a href="<?=site_url('users/update/'.$user['id']);?>"
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-indigo-400 text-white hover:bg-indigo-500 transition duration-200 shadow">
+                      ✏️ Update
+                    </a>
+                  <?php endif; ?>
+
+                  <?php if($logged_in_user['role'] === 'admin'): ?>
+                    <a href="<?=site_url('users/delete/'.$user['id']);?>"
+                       onclick="return confirm('Are you sure you want to delete this record?');"
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition duration-200 shadow">
+                      🗑️ Delete
+                    </a>
+                  <?php endif; ?>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -156,12 +160,15 @@
       </div>
 
       <!-- Create New User -->
+      <?php if($logged_in_user['role'] === 'admin'): ?>
       <div class="mt-6 text-center">
         <a href="<?=site_url('users/create')?>"
            class="inline-block bg-indigo-500 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-lg shadow-md transition duration-200">
           ➕ Create New User
         </a>
       </div>
+      <?php endif; ?>
+
     </div>
   </div>
 </body>

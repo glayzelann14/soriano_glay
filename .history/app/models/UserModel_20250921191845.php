@@ -1,4 +1,3 @@
-
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
@@ -19,13 +18,14 @@ class UsersModel extends Model {
     public function page($q = '', $records_per_page = null, $page = null) {
  
             if (is_null($page)) {
-                return $this->db->table('user')->get_all();
+                return $this->db->table('users')->get_all();
             } else {
-                $query = $this->db->table('user');
+                $query = $this->db->table('users');
 
                 // Build LIKE conditions
                 $query->like('id', '%'.$q.'%')
-                    ->or_like('username', '%'.$q.'%')
+                    ->or_like('last_name', '%'.$q.'%')
+                      ->or_like('first_name', '%'.$q.'%')
                     ->or_like('email', '%'.$q.'%');
                     
                 // Clone before pagination

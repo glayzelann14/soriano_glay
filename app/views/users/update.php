@@ -30,10 +30,10 @@
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.15),
                   inset 0 0 20px rgba(255, 255, 255, 0.05);
-      padding: 35px 25px;
+      padding: 40px 30px;
       border-radius: 2rem;
       width: 100%;
-      max-width: 400px;
+      max-width: 450px;
       position: relative;
       overflow: hidden;
     }
@@ -70,14 +70,14 @@
     }
     input, select {
       width: 100%;
-      padding: 14px 16px;
-      border-radius: 12px;
+      padding: 16px 18px;
+      border-radius: 14px;
       background: rgba(255,255,255,0.2);
       border: 1px solid rgba(255,255,255,0.3);
       color: white;
       outline: none;
-      margin-bottom: 15px;
-      font-size: 1rem;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
     }
     input::placeholder, select::placeholder {
       color: rgba(255,255,255,0.7);
@@ -88,12 +88,12 @@
     }
     .btn-update {
       width: 100%;
-      padding: 16px;
+      padding: 18px;
       margin-top: 10px;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       background: linear-gradient(to right, #f97316, #fb923c, #f97316);
       color: white;
       cursor: pointer;
@@ -107,7 +107,7 @@
       display: block;
       width: 100%;
       text-align: center;
-      margin-top: 15px;
+      margin-top: 18px;
       color: #fb923c;
       font-weight: bold;
       text-decoration: none;
@@ -121,7 +121,7 @@
 <body>
 
   <div class="glass">
-    <h2 class="text-2xl font-bold text-center mb-6">Update User</h2>
+    <h2 class="text-2xl font-bold text-center mb-6">📝 Update User</h2>
 
     <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST">
       <div>

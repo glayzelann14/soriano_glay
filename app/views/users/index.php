@@ -23,43 +23,6 @@
       100% { background-position: 0% 50%; }
     }
 
-  /* Pagination */
-  /* Pagination */
-  .pagination {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .pagination a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .pagination a:hover {
-    background: linear-gradient(to right, #fb923c, #f97316, #ea580c);
-    transform: scale(1.05);
-  }
-
-  /* Current page permanent orange */
-  .pagination strong {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: linear-gradient(to right, #fb923c, #f97316, #ea580c);
-    color: white;
-    border-radius: 0.5rem;
-    font-weight: 600;
-  }
-
-
     /* Glassy container */
     .glass {
       background: rgba(255,255,255,0.08);
@@ -95,6 +58,42 @@
       0% { transform: translateX(-100%) rotate(25deg); }
       100% { transform: translateX(100%) rotate(25deg); }
     }
+
+
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pagination a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .pagination a:hover {
+    background: linear-gradient(to right, #fb923c, #f97316, #ea580c);
+    transform: scale(1.05);
+  }
+
+  .pagination strong {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to right, #f97316, #fb923c, #ea580c);
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+
 
     h1, h2 {
       color: white;
@@ -165,7 +164,6 @@
   </style>
 </head>
 
-
 <body>
   <!-- Navbar -->
   <nav class="glass flex justify-between items-center px-6 py-4 shadow-lg">
@@ -194,39 +192,39 @@
         </form>
       </div>
 
-      <!-- Table -->
-<div class="overflow-x-auto rounded-xl mt-4 shadow-lg">
-  <table class="w-full text-center border-collapse border border-orange-400">
+     <!-- Table -->
+<div class="overflow-x-auto rounded-xl mt-4">
+  <table class="w-full text-center border-collapse border border-white/30">
     <thead>
       <tr class="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
-        <th class="py-3 px-4 border border-orange-300">ID</th>
-        <th class="py-3 px-4 border border-orange-300">Username</th>
-        <th class="py-3 px-4 border border-orange-300">Email</th>
-        <th class="py-3 px-4 border border-orange-300">Role</th>
-        <th class="py-3 px-4 border border-orange-300">Action</th>
+        <th class="py-3 px-4 border border-white/30">ID</th>
+        <th class="py-3 px-4 border border-white/30">Username</th>
+        <th class="py-3 px-4 border border-white/30">Email</th>
+        <th class="py-3 px-4 border border-white/30">Role</th>
+        <th class="py-3 px-4 border border-white/30">Action</th>
       </tr>
     </thead>
-    <tbody class="bg-white text-gray-800">
+    <tbody class="bg-white/10 text-white">
       <?php foreach(html_escape($users) as $user): ?>
-        <tr class="hover:bg-orange-100 transition duration-200
-          <?php if($logged_in_user['id'] === $user['id']) echo 'bg-orange-50'; ?>">
-          <td class="py-3 px-4 border border-orange-300"><?=($user['id']);?></td>
-          <td class="py-3 px-4 border border-orange-300"><?=($user['username']);?></td>
-          <td class="py-3 px-4 border border-orange-300"><?=($user['email']);?></td>
-          <td class="py-3 px-4 border border-orange-300 font-medium"><?=($user['role']);?></td>
-          <td class="py-3 px-4 border border-orange-300 space-x-2">
+        <tr class="hover:bg-white/20 transition duration-200
+          <?php if($logged_in_user['id'] === $user['id']) echo 'bg-white/30'; ?>">
+          <td class="py-3 px-4 border border-white/30"><?=($user['id']);?></td>
+          <td class="py-3 px-4 border border-white/30"><?=($user['username']);?></td>
+          <td class="py-3 px-4 border border-white/30"><?=($user['email']);?></td>
+          <td class="py-3 px-4 border border-white/30 font-medium"><?=($user['role']);?></td>
+          <td class="py-3 px-4 border border-white/30 space-x-2">
             <?php if($logged_in_user['role'] === 'admin'): ?>
               <a href="<?=site_url('users/update/'.$user['id']);?>" 
-                 class="px-3 py-1 text-sm font-medium rounded-lg bg-pink-500 hover:bg-pink-600 transition">
-                 ✏️ Update
+                 class="px-3 py-1 text-sm font-medium rounded-lg bg-orange-500 hover:bg-orange-600 transition">
+                 Update
               </a>
               <a href="<?=site_url('users/delete/'.$user['id']);?>" 
                  onclick="return confirm('Are you sure you want to delete this record?');"
                  class="px-3 py-1 text-sm font-medium rounded-lg bg-red-500 hover:bg-red-600 transition">
-                 🗑️ Delete
+                 Delete
               </a>
             <?php else: ?>
-              <span class="px-3 py-1 text-sm font-medium rounded-lg bg-gray-300 text-gray-700">N/A</span>
+              <span class="px-3 py-1 text-sm font-medium rounded-lg bg-gray-400 text-gray-900">N/A</span>
             <?php endif; ?>
           </td>
         </tr>

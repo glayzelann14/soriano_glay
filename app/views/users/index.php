@@ -166,22 +166,22 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="glass flex justify-between items-center px-6 py-4 shadow-lg">
-    <a href="#" class="text-white font-semibold text-xl tracking-wide">User Management</a>
-    <a href="<?=site_url('reg/logout');?>" class="btn-orange">Logout</a>
-  </nav>
+<nav class="glass flex justify-between items-center px-6 py-3 shadow-lg">
+  <a href="#" class="text-white font-semibold text-lg tracking-wide">User Management</a>
+  <a href="<?=site_url('reg/logout');?>" class="btn-orange px-3 py-1 text-sm">Logout</a>
+</nav>
 
   <!-- Main Content -->
   <div class="max-w-6xl mx-auto px-4">
     <div class="glass">
 
       <!-- Logged In User Display -->
-      <?php if(!empty($logged_in_user)): ?>
-        <div class="mb-6 p-4 rounded-xl shadow-lg bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
-          <h2 class="text-2xl font-bold">Welcome, <?= html_escape($logged_in_user['username']); ?>!</h2>
-          <p class="font-medium">Role: <?= html_escape($logged_in_user['role']); ?></p>
-        </div>
-      <?php endif; ?>
+<?php if(!empty($logged_in_user)): ?>
+  <div class="mb-6 p-4 rounded-xl shadow-lg bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white max-w-md mx-auto text-center">
+    <h2 class="text-xl font-bold">Welcome, <?= html_escape($logged_in_user['username']); ?>!</h2>
+    <p class="font-medium">Role: <?= html_escape($logged_in_user['role']); ?></p>
+  </div>
+<?php endif; ?>
 
       <!-- Header + Search Bar -->
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">

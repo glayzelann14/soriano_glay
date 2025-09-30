@@ -80,7 +80,7 @@ body {
 }
 .btn-update:hover {
   transform: scale(1.05);
-  background: linear-gradient(to right, #fb923c, #f97316, #fb923c);
+  background: linear-gradient(to right, #f97316, #f472b6);
 }
 .return-link {
   display: block;

@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb, #3b82f6);
+      background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
       background-size: 400% 400%;
       animation: gradientFlow 12s ease infinite;
     }
@@ -30,13 +31,16 @@
     }
 
     .login {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       padding: 40px 35px;
       width: 420px;
       border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       animation: fadeIn 0.8s ease-in-out;
+      color: #fff;
     }
 
     @keyframes fadeIn {
@@ -46,15 +50,10 @@
 
     .login h2 {
       text-align: center;
-      font-size: 1.9em;
-      font-weight: 600;
-      color: #1e3a8a;
+      font-size: 2em;
+      font-weight: 700;
+      color: #fff;
       margin-bottom: 25px;
-    }
-
-    .inputBox {
-      display: flex;
-      flex-direction: column;
     }
 
     .login input {
@@ -63,21 +62,21 @@
       margin-bottom: 18px;
       font-size: 1em;
       border-radius: 10px;
-      border: 1px solid #cbd5e1;
-      background: #f8fafc;
-      color: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
       outline: none;
       transition: all 0.2s ease;
     }
 
     .login input:focus {
-      border-color: #2563eb;
-      background: #fff;
-      box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+      border-color: #ff6a00;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 6px rgba(255, 106, 0, 0.5);
     }
 
     .login input::placeholder {
-      color: #64748b;
+      color: #d1d5db;
     }
 
     .password-box {
@@ -90,7 +89,7 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
-      color: #2563eb;
+      color: #ff6a00;
       font-size: 1.1em;
     }
 
@@ -101,7 +100,7 @@
       font-weight: 600;
       border: none;
       border-radius: 10px;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      background: linear-gradient(90deg, #ff6a00, #ff3366);
       color: white;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
@@ -109,7 +108,7 @@
 
     #btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 6px 15px rgba(255, 51, 102, 0.6);
     }
 
     .group {
@@ -118,7 +117,7 @@
     }
 
     .group a {
-      color: #2563eb;
+      color: #ff6a00;
       text-decoration: none;
       font-weight: 500;
     }
@@ -132,7 +131,7 @@
   <section>
     <div class="login">
       <h2>Create Account</h2>
-      <form method="POST" action="<?= site_url('reg/register'); ?>" class="inputBox">
+      <form method="POST" action="<?= site_url('reg/register'); ?>">
 
         <input type="text" name="username" placeholder="Username" required>
         <input type="email" name="email" placeholder="Email" required>
@@ -177,3 +176,4 @@
   </script>
 </body>
 </html>
+```

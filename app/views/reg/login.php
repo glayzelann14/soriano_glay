@@ -4,82 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
     body {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb, #3b82f6);
+      background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
       background-size: 400% 400%;
-      animation: gradientFlow 12s ease infinite;
+      animation: gradientMove 15s ease infinite;
+      font-family: "Poppins", sans-serif;
+      color: white;
     }
 
-    @keyframes gradientFlow {
+    @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .login {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(6px);
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15),
+                  inset 0 0 20px rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
       padding: 40px 35px;
-      width: 420px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      animation: fadeIn 0.8s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      width: 400px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .glass::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.2) 40%,
+        rgba(255, 255, 255, 0.05) 70%
+      );
+      transform: rotate(25deg);
+      animation: shimmer 6s infinite linear;
     }
 
-    .login h2 {
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(25deg); }
+      100% { transform: translateX(100%) rotate(25deg); }
+    }
+
+    .glass h2 {
       text-align: center;
-      font-size: 1.9em;
-      font-weight: 600;
-      color: #1e3a8a;
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
     }
 
     .inputBox {
       position: relative;
+      margin-bottom: 18px;
     }
 
-    .login input {
-    width: 100%;
-    padding: 13px 18px;
-    margin-bottom: 18px; /* dagdag na spacing sa pagitan ng inputs */
-    font-size: 1em;
-    border-radius: 10px;
-    border: 1px solid #cbd5e1;
-    background: #f8fafc;
-    color: #1e293b;
-    outline: none;
-    transition: all 0.2s ease;
-  }
-
-
-    .login input:focus {
-      border-color: #2563eb;
-      background: #fff;
-      box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+    .glass input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      outline: none;
+      transition: all 0.3s ease;
     }
 
-    .login input::placeholder {
-      color: #64748b;
+    .glass input::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .glass input:focus {
+      border-color: #f472b6;
+      background: rgba(255,255,255,0.15);
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
 
     .toggle-password {
@@ -88,36 +101,34 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
+      color: #f472b6;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
       font-size: 1.1em;
-      color: #2563eb;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(to right, #f472b6, #f59e0b, #f97316);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
-    #btn {
-    width: 100%;
-    padding: 14px;
-    margin-top: 10px; /* spacing sa itaas ng button */
-    font-size: 1.1em;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: white;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    }
-
-    #btn:hover {
+    button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 6px 15px rgba(255,255,255,0.2);
     }
 
     .group {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 15px;
     }
 
     .group a {
-      color: #2563eb;
+      color: #f472b6;
       text-decoration: none;
       font-weight: 500;
     }
@@ -139,34 +150,28 @@
   </style>
 </head>
 <body>
-  <section>
-    <div class="login">
-      <h2>Login</h2>
+  <div class="glass">
+    <h2>Login</h2>
 
-      <?php if (!empty($error)): ?>
-        <div class="error-box">
-          <?= $error ?>
-        </div>
-      <?php endif; ?>
+    <?php if (!empty($error)): ?>
+      <div class="error-box"><?= $error ?></div>
+    <?php endif; ?>
 
-      <form method="post" action="<?= site_url('reg/login') ?>">
-        <div class="inputBox">
-          <input type="text" placeholder="Username" name="username" required>
-        </div>
-
-        <div class="inputBox">
-          <input type="password" placeholder="Password" name="password" id="password" required>
-          <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
-        </div>
-
-        <button type="submit" id="btn">Login</button>
-      </form>
-
-      <div class="group">
-        <p>Don't have an account? <a href="<?= site_url('reg/register'); ?>">Register here</a></p>
+    <form method="post" action="<?= site_url('reg/login') ?>">
+      <div class="inputBox">
+        <input type="text" placeholder="Username" name="username" required>
       </div>
+      <div class="inputBox">
+        <input type="password" placeholder="Password" name="password" id="password" required>
+        <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="group">
+      <p>Don't have an account? <a href="<?= site_url('reg/register'); ?>">Register here</a></p>
     </div>
-  </section>
+  </div>
 
   <script>
     const togglePassword = document.querySelector('#togglePassword');

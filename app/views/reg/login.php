@@ -120,9 +120,8 @@
     }
 
     .btn-login:hover {
-      background: linear-gradient(to right, #a855f7, #f97316, #ec4899);
+      background: linear-gradient(to right, #f97316, #ec4899);
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 115, 0, 0.6);
     }
 
     .group {

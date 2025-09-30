@@ -184,55 +184,57 @@
 <?php endif; ?>
 
 
-      <!-- Header + Search Bar -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-        <h1 class="text-2xl font-semibold flex items-center gap-2"><span>👥</span> User Dashboard</h1>
-        <form method="get" action="<?=site_url('users');?>" class="flex w-full md:w-auto">
-          <input type="text" name="q" value="<?=html_escape($_GET['q'] ?? '')?>" placeholder="Search user..." class="search-input">
-          <button type="submit" class="search-btn">🔍</button>
-        </form>
-      </div>
+      <!-- User Dashboard Table Container -->
+<div class="glass max-w-5xl mx-auto p-6 mt-6">
+  <!-- Header + Search Bar -->
+  <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+    <h1 class="text-2xl font-semibold flex items-center gap-2"><span>👥</span> User Dashboard</h1>
+    <form method="get" action="<?=site_url('users');?>" class="flex w-full md:w-auto">
+      <input type="text" name="q" value="<?=html_escape($_GET['q'] ?? '')?>" placeholder="Search user..." class="search-input">
+      <button type="submit" class="search-btn">🔍</button>
+    </form>
+  </div>
 
-     <!-- Table -->
-<div class="overflow-x-auto rounded-xl mt-4">
-  <table class="w-full text-center border-collapse border border-white/30">
-    <thead>
-      <tr class="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
-        <th class="py-3 px-4 border border-white/30">ID</th>
-        <th class="py-3 px-4 border border-white/30">Username</th>
-        <th class="py-3 px-4 border border-white/30">Email</th>
-        <th class="py-3 px-4 border border-white/30">Role</th>
-        <th class="py-3 px-4 border border-white/30">Action</th>
-      </tr>
-    </thead>
-    <tbody class="bg-white/10 text-white">
-      <?php foreach(html_escape($users) as $user): ?>
-        <tr class="hover:bg-white/20 transition duration-200
-          <?php if($logged_in_user['id'] === $user['id']) echo 'bg-white/30'; ?>">
-          <td class="py-3 px-4 border border-white/30"><?=($user['id']);?></td>
-          <td class="py-3 px-4 border border-white/30"><?=($user['username']);?></td>
-          <td class="py-3 px-4 border border-white/30"><?=($user['email']);?></td>
-          <td class="py-3 px-4 border border-white/30 font-medium"><?=($user['role']);?></td>
-          <td class="py-3 px-4 border border-white/30 space-x-2">
-            <?php if($logged_in_user['role'] === 'admin'): ?>
-              <a href="<?=site_url('users/update/'.$user['id']);?>" 
-                 class="px-3 py-1 text-sm font-medium rounded-lg bg-orange-500 hover:bg-orange-600 transition">
-                 Update
-              </a>
-              <a href="<?=site_url('users/delete/'.$user['id']);?>" 
-                 onclick="return confirm('Are you sure you want to delete this record?');"
-                 class="px-3 py-1 text-sm font-medium rounded-lg bg-red-500 hover:bg-red-600 transition">
-                 Delete
-              </a>
-            <?php else: ?>
-              <span class="px-3 py-1 text-sm font-medium rounded-lg bg-gray-400 text-gray-900">N/A</span>
-            <?php endif; ?>
-          </td>
+  <!-- Table -->
+  <div class="overflow-x-auto rounded-xl">
+    <table class="w-full text-center border-collapse border border-white/30">
+      <thead>
+        <tr class="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
+          <th class="py-3 px-4 border border-white/30">ID</th>
+          <th class="py-3 px-4 border border-white/30">Username</th>
+          <th class="py-3 px-4 border border-white/30">Email</th>
+          <th class="py-3 px-4 border border-white/30">Role</th>
+          <th class="py-3 px-4 border border-white/30">Action</th>
         </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody class="bg-white/10 text-white">
+        <?php foreach(html_escape($users) as $user): ?>
+          <tr class="hover:bg-white/20 transition duration-200
+            <?php if($logged_in_user['id'] === $user['id']) echo 'bg-white/30'; ?>">
+            <td class="py-3 px-4 border border-white/30"><?=($user['id']);?></td>
+            <td class="py-3 px-4 border border-white/30"><?=($user['username']);?></td>
+            <td class="py-3 px-4 border border-white/30"><?=($user['email']);?></td>
+            <td class="py-3 px-4 border border-white/30 font-medium"><?=($user['role']);?></td>
+            <td class="py-3 px-4 border border-white/30 space-x-2">
+              <?php if($logged_in_user['role'] === 'admin'): ?>
+                <a href="<?=site_url('users/update/'.$user['id']);?>" 
+                   class="px-3 py-1 text-sm font-medium rounded-lg bg-orange-500 hover:bg-orange-600 transition">
+                   Update
+                </a>
+                <a href="<?=site_url('users/delete/'.$user['id']);?>" 
+                   onclick="return confirm('Are you sure you want to delete this record?');"
+                   class="px-3 py-1 text-sm font-medium rounded-lg bg-red-500 hover:bg-red-600 transition">
+                   Delete
+                </a>
+              <?php else: ?>
+                <span class="px-3 py-1 text-sm font-medium rounded-lg bg-gray-400 text-gray-900">N/A</span>
+              <?php endif; ?>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 
 
       <!-- Pagination -->

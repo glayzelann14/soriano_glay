@@ -1,3 +1,4 @@
+```php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,19 +133,20 @@
                 <td class="py-3 px-4"><?=($user['email']);?></td>
                 <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
                 <td class="py-3 px-4 space-x-3">
-                  <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] === $user['id']): ?>
+                  <?php if($logged_in_user['role'] === 'admin'): ?>
                     <a href="<?=site_url('users/update/'.$user['id']);?>"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-indigo-400 text-white hover:bg-indigo-500 transition duration-200 shadow">
                       ✏️ Update
                     </a>
-                  <?php endif; ?>
-
-                  <?php if($logged_in_user['role'] === 'admin'): ?>
                     <a href="<?=site_url('users/delete/'.$user['id']);?>"
                        onclick="return confirm('Are you sure you want to delete this record?');"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition duration-200 shadow">
                       🗑️ Delete
                     </a>
+                  <?php else: ?>
+                    <span class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-300 text-gray-700 shadow">
+                      N/A
+                    </span>
                   <?php endif; ?>
                 </td>
               </tr>
@@ -174,3 +176,4 @@
   </div>
 </body>
 </html>
+```

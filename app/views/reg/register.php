@@ -57,7 +57,7 @@
       flex-direction: column;
     }
 
-    .login input {
+    .login input, .login select {
       width: 100%;
       padding: 13px 18px;
       margin-bottom: 18px;
@@ -70,7 +70,7 @@
       transition: all 0.2s ease;
     }
 
-    .login input:focus {
+    .login input:focus, .login select:focus {
       border-color: #2563eb;
       background: #fff;
       box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
@@ -147,8 +147,11 @@
           <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
         </div>
 
-        <!-- Hidden role input to force user role -->
-        <input type="hidden" name="role" value="user">
+        <!-- Role dropdown always visible -->
+        <select name="role" required>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
 
         <button type="submit" id="btn">Register</button>
       </form>

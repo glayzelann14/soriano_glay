@@ -149,7 +149,7 @@
     <!-- Register form with route -->
     <form action="<?= base_url('reg/submit'); ?>" method="POST">
       <div class="input-group">
-        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="text" name="username" placeholder="Username" required>
       </div>
       <div class="input-group">
         <input type="email" name="email" placeholder="Email" required>

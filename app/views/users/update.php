@@ -99,36 +99,40 @@ body {
 <body>
 
 <div class="glass">
-  <h2 class="text-2xl font-bold text-center mb-6">📝 Update User</h2>
+  <h2 class="text-2xl font-bold text-center mb-6">Update User</h2>
 
   <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST" class="space-y-5">
 
     <!-- Username -->
-    <div>
-      <input type="text" name="username" placeholder="Username" required
-             value="<?= html_escape($user['username'])?>"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
-    </div>
+<div>
+  <input type="text" name="username" placeholder="Username" required
+         value="<?= html_escape($user['username'])?>"
+         class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
+                focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
+</div>
 
-    <!-- Email -->
-    <div>
-      <input type="email" name="email" placeholder="Email" required
-             value="<?= html_escape($user['email'])?>"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
-    </div>
+<!-- Email -->
+<div>
+  <input type="email" name="email" placeholder="Email" required
+         value="<?= html_escape($user['email'])?>"
+         class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
+                focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
+</div>
 
-    <!-- Role (admin only) -->
-    <?php if(!empty($logged_in_user) && $logged_in_user['role']==='admin'): ?>
-    <div>
-      <select name="role" required
-              class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
-        <option value="user" <?= $user['role']==='user'?'selected':'';?>>User</option>
-        <option value="admin" <?= $user['role']==='admin'?'selected':'';?>>Admin</option>
-      </select>
-    </div>
-    <?php else: ?>
-      <input type="hidden" name="role" value="<?= $user['role']; ?>">
-    <?php endif; ?>
+<!-- Role (admin only) -->
+<?php if(!empty($logged_in_user) && $logged_in_user['role']==='admin'): ?>
+<div>
+  <select name="role" required
+          class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
+                 focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-400 appearance-none">
+    <option value="" disabled selected>Select Role</option>
+    <option value="user" class="text-gray-900">User</option>
+    <option value="admin" class="text-gray-900">Admin</option>
+  </select>
+</div>
+<?php else: ?>
+  <input type="hidden" name="role" value="<?= $user['role']; ?>">
+<?php endif; ?>
 
     <!-- Password -->
 <div class="relative">

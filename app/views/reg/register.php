@@ -106,15 +106,21 @@
     <!-- Hidden role input -->
     <input type="hidden" name="role" value="user">
 
-  <button type="submit"
-  class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:opacity-90 text-white font-bold py-2 rounded-lg shadow-lg transition">
+
+<button type="submit"
+  class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 
+         hover:from-purple-500 hover:via-orange-500 hover:to-pink-500
+         transition-all duration-500 ease-in-out 
+         transform hover:scale-105
+         text-white font-bold py-2 rounded-lg shadow-lg">
   Register
-  </button>
+</button>
+
 
 
   <div class="text-center mt-4">
     <p>Already have an account? 
-      <a href="<?=site_url('reg/login');?>" class="text-pink-400 hover:underline">Login</a>
+      <a href="<?=site_url('reg/login');?>" class="text-orange-400 hover:underline">Login</a>
     </p>
   </div>
 </div>

@@ -66,9 +66,6 @@ body {
   cursor: pointer;
   color: #fb923c;
 }
-input, button {
-  font-family: "Poppins", sans-serif;
-}
 .btn-update {
   width: 100%;
   padding: 16px;
@@ -107,52 +104,45 @@ input, button {
   <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST" class="space-y-5">
 
     <!-- Username -->
-    <div>
-      <input type="text" name="username" placeholder="Username" required
-             value="<?= html_escape($user['username'])?>"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
-                    focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
-    </div>
+<div>
+  <input type="text" name="username" placeholder="Username" required
+         value="<?= html_escape($user['username'])?>"
+         class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
+                focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
+</div>
 
-    <!-- Email -->
-    <div>
-      <input type="email" name="email" placeholder="Email" required
-             value="<?= html_escape($user['email'])?>"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
-                    focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
-    </div>
+<!-- Email -->
+<div>
+  <input type="email" name="email" placeholder="Email" required
+         value="<?= html_escape($user['email'])?>"
+         class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
+                focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
+</div>
 
-    <!-- Role Dropdown -->
-    <div class="relative">
-      <button type="button" id="roleBtn"
-              class="w-full px-5 py-4 bg-white/10 text-white rounded-2xl text-lg text-left focus:ring-2 focus:ring-orange-400 focus:outline-none flex justify-between items-center">
-        <span id="selectedRole"><?= html_escape($user['role']) ?? 'Select Role' ?></span>
-        <i class="fa-solid fa-caret-down"></i>
-      </button>
-      <ul id="roleDropdown" class="absolute w-full mt-1 bg-white/10 text-white rounded-2xl shadow-lg hidden z-50 max-h-40 overflow-y-auto">
-        <li class="px-5 py-3 hover:bg-orange-400/50 cursor-pointer" data-value="user">User</li>
-        <li class="px-5 py-3 hover:bg-orange-400/50 cursor-pointer" data-value="admin">Admin</li>
-      </ul>
-      <input type="hidden" name="role" id="roleInput" value="<?= html_escape($user['role'])?>">
-    </div>
+<div class="relative">
+  <select name="role" required
+          class="w-full appearance-none px-5 py-4 border border-white/50 bg-white/20 rounded-2xl text-black text-lg focus:ring-2 focus:ring-orange-500 focus:outline-none cursor-pointer">
+    <option value="" disabled selected>Select Role</option>
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+  <!-- Caret icon -->
+  <i class="fa-solid fa-caret-down absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white"></i>
+</div>
+
+
+
 
     <!-- Password -->
-    <div class="relative">
-      <input type="password" name="password" id="password" placeholder="New Password (leave blank to keep current)"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
-                    focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
-      <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-white"
-         onclick="toggleVisibility('password', this)"></i>
-    </div>
+<div class="relative">
+  <input type="password" name="password" id="password" placeholder="New Password (leave blank to keep current)"
+         class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
+                focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
+  <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-white"
+     onclick="toggleVisibility('password', this)"></i>
+</div>
 
-    <!-- Confirm Password -->
-    <div class="relative">
-      <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm Password"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
-                    focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
-      <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-white"
-         onclick="toggleVisibility('confirmPassword', this)"></i>
-    </div>
+
 
     <!-- Submit -->
     <button type="submit" class="btn-update">Update User</button>
@@ -174,31 +164,6 @@ function toggleVisibility(inputId, icon) {
     icon.classList.add('fa-eye');
   }
 }
-
-// Role dropdown logic
-const roleBtn = document.getElementById('roleBtn');
-const roleDropdown = document.getElementById('roleDropdown');
-const selectedRole = document.getElementById('selectedRole');
-const roleInput = document.getElementById('roleInput');
-
-roleBtn.addEventListener('click', () => {
-  roleDropdown.classList.toggle('hidden');
-});
-
-roleDropdown.querySelectorAll('li').forEach(item => {
-  item.addEventListener('click', () => {
-    selectedRole.textContent = item.textContent;
-    roleInput.value = item.getAttribute('data-value');
-    roleDropdown.classList.add('hidden');
-  });
-});
-
-// Close dropdown if clicked outside
-document.addEventListener('click', e => {
-  if (!roleBtn.contains(e.target) && !roleDropdown.contains(e.target)) {
-    roleDropdown.classList.add('hidden');
-  }
-});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>

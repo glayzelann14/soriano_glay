@@ -144,25 +144,33 @@
   </style>
 </head>
 <body>
+
   <div class="glass">
     <h2>Register</h2>
-    <!-- Register form with route -->
-    <form action="<?= base_url('reg/register'); ?>" method="POST">
-      <div class="input-group">
+      <form method="POST" action="<?= site_url('reg/register'); ?>" class="inputBox">
+
         <input type="text" name="username" placeholder="Username" required>
-      </div>
-      <div class="input-group">
         <input type="email" name="email" placeholder="Email" required>
+
+        <div class="password-box">
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <i class="fa-solid fa-eye" id="togglePassword"></i>
+        </div>
+
+        <div class="password-box">
+          <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
+          <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
+        </div>
+
+        <!-- Hidden role input to force user role -->
+        <input type="hidden" name="role" value="user">
+
+        <button type="submit" id="btn">Register</button>
+      </form>
+
+      <div class="group">
+        <p>Already have an account? <a href="<?= site_url('reg/login'); ?>">Login here</a></p>
       </div>
-      <div class="input-group">
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
-      </div>
-      <button type="submit">Register</button>
-    </form>
-    <div class="links">
-      <p>Already have an account? <a href="<?= site_url('reg/login'); ?>">Login here</a></p>
-    </div>
   </div>
 
   <script>

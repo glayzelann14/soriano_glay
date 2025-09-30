@@ -89,14 +89,31 @@
         <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-pink-400" id="togglePassword"></i>
       </div>
     </div>
-    <div class="password-box">
-      <label class="block text-sm font-medium mb-1">Confirm Password</label>
-      <div class="relative">
-        <input type="password" id="confirmPassword" name="confirm_password" required
-          class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
-        <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-pink-400" id="toggleConfirmPassword"></i>
-      </div>
-    </div>
+    
+    ```html
+<div class="password-box">
+  <label class="block text-sm font-medium mb-1">Password</label>
+  <div class="relative">
+    <input type="password" id="password" name="password" required
+      class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+    <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-orange-400"
+       onclick="toggleVisibility('password', this)"></i>
+  </div>
+</div>
+
+<div class="password-box">
+  <label class="block text-sm font-medium mb-1">Confirm Password</label>
+  <div class="relative">
+    <input type="password" id="confirmPassword" name="confirm_password" required
+      class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+    <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-orange-400"
+       onclick="toggleVisibility('confirmPassword', this)"></i>
+  </div>
+</div>
+
+
+
+
 
     <!-- Hidden role input -->
     <input type="hidden" name="role" value="user">
@@ -115,21 +132,19 @@
 </div>
 
   <script>
-    function toggleVisibility(toggleId, inputId) {
-      const toggle = document.getElementById(toggleId);
-      const input = document.getElementById(inputId);
-
-      toggle.addEventListener('click', function () {
-        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-        input.setAttribute('type', type);
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
-      });
+  function toggleVisibility(inputId, icon) {
+    const input = document.getElementById(inputId);
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
     }
-
-    toggleVisibility('togglePassword', 'password');
-    toggleVisibility('toggleConfirmPassword', 'confirmPassword');
-  </script>
+  }
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>
 </html>

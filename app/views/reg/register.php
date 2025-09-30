@@ -103,18 +103,14 @@
   </div>
 </div>
 
-
-
-
-
     <!-- Hidden role input -->
     <input type="hidden" name="role" value="user">
 
-    <button type="submit"
-      class="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:opacity-90 text-white font-bold py-2 rounded-lg shadow-lg transition">
-      Register
-    </button>
-  </form>
+  <button type="submit"
+  class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:opacity-90 text-white font-bold py-2 rounded-lg shadow-lg transition">
+  Register
+  </button>
+
 
   <div class="text-center mt-4">
     <p>Already have an account? 

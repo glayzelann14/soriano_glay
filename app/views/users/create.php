@@ -109,8 +109,20 @@
         </div>
       </div>
 
-      <!-- Role (hidden) -->
-      <input type="hidden" name="role" value="user">
+      <!-- Role (only visible for admin) -->
+      <?php if ($is_admin): ?>
+      <div>
+        <label class="block text-sm font-medium mb-1">Role</label>
+        <select name="role"
+                class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+          <option value="user" selected>User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <?php else: ?>
+        <!-- Hidden role for normal user creation -->
+        <input type="hidden" name="role" value="user">
+      <?php endif; ?>
 
       <!-- Submit Button -->
       <button type="submit"

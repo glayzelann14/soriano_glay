@@ -195,7 +195,7 @@
       </div>
 
       <!-- Table -->
-<div class="overflow-x-auto rounded-xl mt-4">
+<div class="overflow-x-auto rounded-xl mt-4 shadow-lg">
   <table class="w-full text-center border-collapse border border-white/30">
     <thead>
       <tr class="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
@@ -206,10 +206,10 @@
         <th class="py-3 px-4 border border-white/30">Action</th>
       </tr>
     </thead>
-    <tbody class="bg-white/10 text-white">
+    <tbody class="bg-white text-gray-800">
       <?php foreach(html_escape($users) as $user): ?>
-        <tr class="hover:bg-white/20 transition duration-200
-          <?php if($logged_in_user['id'] === $user['id']) echo 'bg-white/30'; ?>">
+        <tr class="hover:bg-orange-100 transition duration-200
+          <?php if($logged_in_user['id'] === $user['id']) echo 'bg-orange-50'; ?>">
           <td class="py-3 px-4 border border-white/30"><?=($user['id']);?></td>
           <td class="py-3 px-4 border border-white/30"><?=($user['username']);?></td>
           <td class="py-3 px-4 border border-white/30"><?=($user['email']);?></td>
@@ -226,7 +226,7 @@
                  🗑️ Delete
               </a>
             <?php else: ?>
-              <span class="px-3 py-1 text-sm font-medium rounded-lg bg-gray-400 text-gray-900">N/A</span>
+              <span class="px-3 py-1 text-sm font-medium rounded-lg bg-gray-300 text-gray-700">N/A</span>
             <?php endif; ?>
           </td>
         </tr>
@@ -234,6 +234,7 @@
     </tbody>
   </table>
 </div>
+
 
 
       <!-- Pagination -->

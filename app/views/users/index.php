@@ -22,7 +22,8 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    
+
+  /* Pagination */
   /* Pagination */
   .pagination {
     display: flex;
@@ -48,10 +49,11 @@
     transform: scale(1.05);
   }
 
+  /* Current page permanent orange */
   .pagination strong {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: linear-gradient(to right, #f97316, #fb923c, #ea580c);
+    background: linear-gradient(to right, #fb923c, #f97316, #ea580c);
     color: white;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -162,6 +164,20 @@
 
   </style>
 </head>
+
+<!-- Pagination HTML Example -->
+<div class="pagination">
+  <?php
+    $totalPages = 10; // halimbawa
+    $currentPage = $_GET['page'] ?? 1;
+    for ($i = 1; $i <= $totalPages; $i++):
+      if ($i == $currentPage):
+  ?>
+      <strong><?= $i ?></strong>
+  <?php else: ?>
+      <a href="?page=<?= $i ?>"><?= $i ?></a>
+  <?php endif; endfor; ?>
+</div>
 
 <body>
   <!-- Navbar -->

@@ -185,7 +185,7 @@
 
       <!-- Header + Search Bar -->
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-        <h1 class="text-2xl font-semibold flex items-center gap-2"><span>👥</span> User Directory</h1>
+        <h1 class="text-2xl font-semibold flex items-center gap-2"><span>👥</span> User Dashboard</h1>
         <form method="get" action="<?=site_url('users');?>" class="flex w-full md:w-auto">
           <input type="text" name="q" value="<?=html_escape($_GET['q'] ?? '')?>" placeholder="Search user..." class="search-input">
           <button type="submit" class="search-btn">🔍</button>

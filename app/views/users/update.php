@@ -6,88 +6,165 @@
   <title>Update User</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      color: white;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15),
+                  inset 0 0 20px rgba(255, 255, 255, 0.05);
+      padding: 40px 30px;
+      border-radius: 2rem;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    .glass::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.2) 40%,
+        rgba(255, 255, 255, 0.05) 70%
+      );
+      transform: rotate(25deg);
+      animation: shimmer 6s infinite linear;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(25deg); }
+      100% { transform: translateX(100%) rotate(25deg); }
+    }
+    .password-box {
+      position: relative;
+    }
+    .password-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #f472b6;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      outline: none;
+      margin-bottom: 15px;
+    }
+    input::placeholder, select::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+    input:focus, select:focus {
+      border-color: #f472b6;
+      box-shadow: 0 0 6px rgba(244,114,182,0.5);
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 5px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(to right, #f97316, #fb923c, #f97316);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #fb923c, #f97316, #fb923c);
+    }
+    .return-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 12px;
+      background: linear-gradient(to right, #f97316, #fb923c);
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      transition: all 0.3s ease-in-out;
+    }
+    .return-btn:hover {
+      background: linear-gradient(to right, #fb923c, #f97316);
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-600 via-indigo-500 to-blue-500 min-h-screen flex items-center justify-center font-sans text-gray-100">
+<body>
 
-  <div class="bg-white bg-opacity-90 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
-    <h2 class="text-2xl font-semibold text-center text-indigo-700 mb-6">📝 Update User</h2>
+  <div class="glass">
+    <h2 class="text-2xl font-bold text-center mb-6">📝 Update User</h2>
 
-    <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST" class="space-y-5">
-      
-      <!-- Username -->
+    <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST">
       <div>
-        <label class="block text-indigo-700 mb-1">Username</label>
-        <input type="text" name="username" value="<?= html_escape($user['username'])?>" required
-               class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
+        <input type="text" name="username" value="<?= html_escape($user['username'])?>" placeholder="Username" required>
+      </div>
+      <div>
+        <input type="email" name="email" value="<?= html_escape($user['email'])?>" placeholder="Email" required>
       </div>
 
-      <!-- Email -->
-      <div>
-        <label class="block text-indigo-700 mb-1">Email Address</label>
-        <input type="email" name="email" value="<?= html_escape($user['email'])?>" required
-               class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
-      </div>
-
-      <!-- Role (only if admin) -->
       <?php if(!empty($logged_in_user) && $logged_in_user['role'] === 'admin'): ?>
         <div>
-          <label class="block text-indigo-700 mb-1">Role</label>
-          <select name="role" required
-                  class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
-            <option value="user" <?= $user['role'] === 'user' ? 'selected' : ''; ?>>User</option>
-            <option value="admin" <?= $user['role'] === 'admin' ? 'selected' : ''; ?>>Admin</option>
+          <select name="role" required>
+            <option value="user" <?= $user['role']==='user'?'selected':'';?>>User</option>
+            <option value="admin" <?= $user['role']==='admin'?'selected':'';?>>Admin</option>
           </select>
         </div>
 
-        <!-- Password with toggle -->
-        <div class="relative">
-          <label class="block text-indigo-700 mb-1">Password</label>
-          <input type="password" name="password" id="password"
-                 class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200" required>
-          <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-indigo-600" id="togglePassword"></i>
+        <div class="password-box">
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <i class="fa-solid fa-eye" id="togglePassword"></i>
         </div>
       <?php endif; ?>
 
-      <!-- Submit Button -->
-      <button type="submit"
-              class="w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white font-medium py-3 rounded-xl shadow-lg transition duration-300 transform hover:-translate-y-1">
-        Update User
-      </button>
+      <button type="submit">Update User</button>
     </form>
 
-    <!-- Return Button -->
-    <a href="<?=site_url('/users');?>" class="mt-4 block text-center bg-indigo-500 hover:bg-indigo-600 text-white py-2 rounded-xl shadow-md transition duration-200">
-      ⬅ Return to Home
-    </a>
+    <a href="<?=site_url('/users');?>" class="return-btn">⬅ Return to Home</a>
   </div>
 
-  <!-- Password Toggle Script -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const togglePassword = document.getElementById('togglePassword');
-      const password = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
 
-      if (togglePassword && password) {
-        togglePassword.addEventListener('click', function() {
-          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-          password.setAttribute('type', type);
-          this.classList.toggle('fa-eye');
-          this.classList.toggle('fa-eye-slash');
-        });
-      }
-    });
+    if(togglePassword && password) {
+      togglePassword.addEventListener('click', function() {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+      });
+    }
   </script>
-
-  <!-- Fade-in animation -->
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeIn {
-      animation: fadeIn 0.8s ease;
-    }
-  </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>

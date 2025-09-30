@@ -131,18 +131,21 @@ body {
     <?php endif; ?>
 
     <!-- Password -->
-    <div class="password-box">
-      <input type="password" name="password" id="password" placeholder="New Password (leave blank to keep current)"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
-      <i class="fa-solid fa-eye" onclick="toggleVisibility('password', this)"></i>
-    </div>
+<div class="relative">
+  <input type="password" name="password" id="password" placeholder="New Password (leave blank to keep current)"
+         class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
+  <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-white"
+     onclick="toggleVisibility('password', this)"></i>
+</div>
 
-    <!-- Confirm Password -->
-    <div class="password-box">
-      <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm New Password"
-             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
-      <i class="fa-solid fa-eye" onclick="toggleVisibility('confirmPassword', this)"></i>
-    </div>
+<!-- Confirm Password -->
+<div class="relative">
+  <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm New Password"
+         class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
+  <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-white"
+     onclick="toggleVisibility('confirmPassword', this)"></i>
+</div>
+
 
     <!-- Submit -->
     <button type="submit" class="btn-update">Update User</button>

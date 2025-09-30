@@ -8,13 +8,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
 body {
-  background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
   font-family: "Poppins", sans-serif;
   color: white;
 }
@@ -26,14 +26,13 @@ body {
 .glass {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.15),
               inset 0 0 20px rgba(255, 255, 255, 0.05);
-  padding: 50px 35px;
+  padding: 40px 40px;
   border-radius: 2rem;
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
   position: relative;
   overflow: hidden;
 }
@@ -54,24 +53,24 @@ body {
 }
 input, select {
   width: 100%;
-  padding: 18px 20px;
+  padding: 16px 20px;
   border-radius: 16px;
   background: rgba(255,255,255,0.2);
   border: 1px solid rgba(255,255,255,0.3);
   color: white;
   outline: none;
   margin-bottom: 24px;
-  font-size: 1.15rem;
+  font-size: 1.125rem; /* text-lg */
 }
 input::placeholder, select::placeholder { color: rgba(255,255,255,0.7); }
 input:focus, select:focus { border-color: #f472b6; box-shadow: 0 0 8px rgba(244,114,182,0.5); }
 .password-box { position: relative; }
-.password-box i { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #f472b6; font-size: 1.2rem; }
+.password-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #f472b6; font-size: 1.25rem; }
 .btn-update {
   width: 100%;
-  padding: 18px;
+  padding: 16px;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   border: none;
   border-radius: 16px;
   background: linear-gradient(to right, #f97316, #fb923c, #f97316);

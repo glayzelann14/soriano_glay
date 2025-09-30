@@ -157,37 +157,46 @@
       </div>
 
       <!-- Table -->
-      <div class="overflow-x-auto rounded-xl">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach(html_escape($users) as $user): ?>
-              <tr>
-                <td><?=($user['id']);?></td>
-                <td><?=($user['username']);?></td>
-                <td><?=($user['email']);?></td>
-                <td><?=($user['role']);?></td>
-                <td class="space-x-2">
-                  <?php if($logged_in_user['role'] === 'admin'): ?>
-                    <a href="<?=site_url('users/update/'.$user['id']);?>" class="btn-orange text-sm px-3 py-1">✏️ Update</a>
-                    <a href="<?=site_url('users/delete/'.$user['id']);?>" onclick="return confirm('Are you sure?');" class="btn-orange text-sm px-3 py-1">🗑️ Delete</a>
-                  <?php else: ?>
-                    <span class="px-3 py-1 rounded-lg bg-gray-500 text-gray-200">N/A</span>
-                  <?php endif; ?>
-                </td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-      </div>
+<div class="overflow-x-auto rounded-xl mt-4">
+  <table class="w-full text-center border-collapse border border-white/30">
+    <thead>
+      <tr class="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
+        <th class="py-3 px-4 border border-white/30">ID</th>
+        <th class="py-3 px-4 border border-white/30">Username</th>
+        <th class="py-3 px-4 border border-white/30">Email</th>
+        <th class="py-3 px-4 border border-white/30">Role</th>
+        <th class="py-3 px-4 border border-white/30">Action</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white/10 text-white">
+      <?php foreach(html_escape($users) as $user): ?>
+        <tr class="hover:bg-white/20 transition duration-200
+          <?php if($logged_in_user['id'] === $user['id']) echo 'bg-white/30'; ?>">
+          <td class="py-3 px-4 border border-white/30"><?=($user['id']);?></td>
+          <td class="py-3 px-4 border border-white/30"><?=($user['username']);?></td>
+          <td class="py-3 px-4 border border-white/30"><?=($user['email']);?></td>
+          <td class="py-3 px-4 border border-white/30 font-medium"><?=($user['role']);?></td>
+          <td class="py-3 px-4 border border-white/30 space-x-2">
+            <?php if($logged_in_user['role'] === 'admin'): ?>
+              <a href="<?=site_url('users/update/'.$user['id']);?>" 
+                 class="px-3 py-1 text-sm font-medium rounded-lg bg-orange-500 hover:bg-orange-600 transition">
+                 ✏️ Update
+              </a>
+              <a href="<?=site_url('users/delete/'.$user['id']);?>" 
+                 onclick="return confirm('Are you sure you want to delete this record?');"
+                 class="px-3 py-1 text-sm font-medium rounded-lg bg-red-500 hover:bg-red-600 transition">
+                 🗑️ Delete
+              </a>
+            <?php else: ?>
+              <span class="px-3 py-1 text-sm font-medium rounded-lg bg-gray-400 text-gray-900">N/A</span>
+            <?php endif; ?>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+
 
       <!-- Pagination -->
       <div class="mt-6 flex justify-center">

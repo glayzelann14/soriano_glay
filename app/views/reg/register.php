@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,6 @@
   <title>Register</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Animated gradient background */
     body {
       background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
       background-size: 400% 400%;
@@ -19,7 +18,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Glassy shimmering effect */
     .glass {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(12px);
@@ -31,7 +29,6 @@
       overflow: hidden;
     }
 
-    /* Shimmer overlay */
     .glass::before {
       content: "";
       position: absolute;
@@ -53,6 +50,18 @@
       0% { transform: translateX(-100%) rotate(25deg); }
       100% { transform: translateX(100%) rotate(25deg); }
     }
+
+    .password-box {
+      position: relative;
+    }
+    .password-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #f472b6;
+    }
   </style>
 </head>
 <body class="min-h-screen flex items-center justify-center px-4 text-white font-sans">
@@ -63,18 +72,15 @@
     <div class="flex-1 text-center md:text-left">
       <h1 class="text-5xl font-bold mb-4">Welcome!</h1>
       <p class="text-gray-200 max-w-md">
-        Create an account to manage users, explore features, and get started with your journey.
+        Create an account to manage your profile and explore features easily.
       </p>
-      <button class="mt-6 bg-pink-600 hover:bg-pink-700 px-6 py-2 rounded-lg shadow-lg font-medium">
-        Learn More
-      </button>
     </div>
 
     <!-- Right Side: Register Form -->
     <div class="flex-1 glass rounded-2xl shadow-2xl p-8">
-      <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
+      <h2 class="text-2xl font-bold mb-6 text-center">Create Account</h2>
       
-      <form method="post" action="<?=site_url('reg/save');?>" class="space-y-4">
+      <form method="post" action="<?=site_url('reg/register');?>" class="space-y-4">
         <div>
           <label class="block text-sm font-medium mb-1">Username</label>
           <input type="text" name="username" required
@@ -85,27 +91,50 @@
           <input type="email" name="email" required
             class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
         </div>
-        <div>
+        <div class="password-box">
           <label class="block text-sm font-medium mb-1">Password</label>
-          <input type="password" name="password" required
+          <input type="password" id="password" name="password" required
             class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+          <i class="fa-solid fa-eye" id="togglePassword"></i>
         </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">Role</label>
-          <select name="role"
-            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white focus:outline-none focus:ring-2 focus:ring-pink-500">
-            <option value="user" class="text-black">User</option>
-            <option value="admin" class="text-black">Admin</option>
-          </select>
+        <div class="password-box">
+          <label class="block text-sm font-medium mb-1">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirm_password" required
+            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+          <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
         </div>
 
         <button type="submit"
-          class="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:opacity-90 text-white font-bold py-2 rounded-lg shadow-lg transition">
-          Submit
+          class="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:opacity-90 text-white font-bold py-2 rounded-lg shadow-lg transition">
+          Register
         </button>
       </form>
+
+      <div class="text-center mt-4">
+        <p>Already have an account? 
+          <a href="<?=site_url('reg/login');?>" class="text-pink-400 hover:underline">Login</a>
+        </p>
+      </div>
     </div>
   </div>
 
+  <script>
+    function toggleVisibility(toggleId, inputId) {
+      const toggle = document.getElementById(toggleId);
+      const input = document.getElementById(inputId);
+
+      toggle.addEventListener('click', function () {
+        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+      });
+    }
+
+    toggleVisibility('togglePassword', 'password');
+    toggleVisibility('toggleConfirmPassword', 'confirmPassword');
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>
 </html>
+```

@@ -22,6 +22,41 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+    
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pagination a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .pagination a:hover {
+    background: linear-gradient(to right, #fb923c, #f97316, #ea580c);
+    transform: scale(1.05);
+  }
+
+  .pagination strong {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to right, #f97316, #fb923c, #ea580c);
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+
 
     /* Glassy container */
     .glass {

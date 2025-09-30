@@ -88,7 +88,7 @@ body {
   text-align: center;
   margin-top: 16px;
   color: #fb923c;
-  font-weight: bold;
+  font-weight: normal;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
@@ -107,21 +107,21 @@ body {
     <div>
       <input type="text" name="username" placeholder="Username" required
              value="<?= html_escape($user['username'])?>"
-             class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
+             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
     </div>
 
     <!-- Email -->
     <div>
       <input type="email" name="email" placeholder="Email" required
              value="<?= html_escape($user['email'])?>"
-             class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
+             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
     </div>
 
     <!-- Role (admin only) -->
     <?php if(!empty($logged_in_user) && $logged_in_user['role']==='admin'): ?>
     <div>
       <select name="role" required
-              class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
+              class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
         <option value="user" <?= $user['role']==='user'?'selected':'';?>>User</option>
         <option value="admin" <?= $user['role']==='admin'?'selected':'';?>>Admin</option>
       </select>
@@ -132,15 +132,15 @@ body {
 
     <!-- Password -->
     <div class="password-box">
-      <input type="password" name="password" id="password" placeholder="Password"
-             class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
+      <input type="password" name="password" id="password" placeholder="New Password (leave blank to keep current)"
+             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
       <i class="fa-solid fa-eye" onclick="toggleVisibility('password', this)"></i>
     </div>
 
     <!-- Confirm Password -->
     <div class="password-box">
-      <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm Password"
-             class="w-full px-4 py-3 border border-indigo-300 bg-indigo-50 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-800 transition duration-200">
+      <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm New Password"
+             class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl focus:ring-2 focus:ring-indigo-400 focus:outline-none text-white transition duration-200">
       <i class="fa-solid fa-eye" onclick="toggleVisibility('confirmPassword', this)"></i>
     </div>
 

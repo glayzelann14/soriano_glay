@@ -45,54 +45,70 @@
       100% { transform: rotate(360deg); }
     }
 
-    .eye-icon {
+    .input-container {
+      position: relative;
+    }
+
+    .input-container input {
+      width: 100%;
+      padding: 0.75rem 2.5rem 0.75rem 1rem; /* extra right padding for icon */
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      outline: none;
+    }
+
+    .input-container .toggle-password {
       position: absolute;
       right: 12px;
       top: 50%;
       transform: translateY(-50%);
+      font-size: 1.2rem;
       cursor: pointer;
+      color: #ddd;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 1rem;
+      text-align: center;
+      border-radius: 0.75rem 0.75rem 0 0;
     }
   </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
-  <div class="glass rounded-2xl p-10 w-full max-w-md text-white">
+  <div class="glass rounded-2xl w-full max-w-md text-white">
     
-    <!-- Welcome Container -->
-    <div class="text-center mb-8">
-      <h1 class="text-4xl font-extrabold drop-shadow-lg">Welcome to Student Dashboard</h1>
-      <p class="mt-2 text-gray-300">Create your account to get started.</p>
+    <!-- Header -->
+    <div class="header">
+      <h1 class="text-3xl font-bold">Welcome to Student Dashboard</h1>
+      <p class="text-gray-200 text-sm mt-1">Create your account to get started</p>
     </div>
 
-    <!-- Register Form -->
-    <form>
-      <div class="mb-4 relative">
-        <input type="text" placeholder="Username" class="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
-      </div>
-      <div class="mb-4 relative">
-        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
-      </div>
-      <div class="password-box">
-          <input type="password" id="password" name="password" placeholder="Password" required>
-          <i class="fa-solid fa-eye" id="togglePassword"></i>
+    <!-- Form -->
+    <div class="p-8">
+      <form>
+        <div class="mb-4 input-container">
+          <input type="text" placeholder="Username">
         </div>
-
-        <div class="password-box">
-          <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
-          <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
-      </div>
-
-      <button type="submit" class="w-full py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold">Register</button>
-      <p class="text-center text-sm mt-4">Already have an account? <a href="#" class="text-purple-400 hover:underline">Login</a></p>
-    </form>
+        <div class="mb-4 input-container">
+          <input type="email" placeholder="Email">
+        </div>
+        <div class="mb-6 input-container">
+          <input type="password" id="password" placeholder="Password">
+          <span class="toggle-password" onclick="togglePassword()">👁</span>
+        </div>
+        <button type="submit" class="w-full py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold">Register</button>
+        <p class="text-center text-sm mt-4">Already have an account? <a href="#" class="text-purple-400 hover:underline">Login</a></p>
+      </form>
+    </div>
   </div>
 
   <script>
     function togglePassword() {
       const password = document.getElementById("password");
       password.type = password.type === "password" ? "text" : "password";
-      input.setAttribute('type', type);
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
     }
   </script>
 </body>

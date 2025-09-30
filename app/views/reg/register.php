@@ -95,10 +95,10 @@
       color: rgba(255, 255, 255, 0.7);
     }
 
-    /* Highlight effect on focus */
+    /* Highlight effect on focus (orange) */
     .input-group input:focus {
-      border: 2px solid #9d4edd;
-      box-shadow: 0 0 10px rgba(157, 78, 221, 0.8);
+      border: 2px solid #ff7e00;
+      box-shadow: 0 0 10px rgba(255, 126, 0, 0.8);
       background: rgba(255, 255, 255, 0.15);
     }
 
@@ -117,7 +117,7 @@
       padding: 12px;
       border-radius: 8px;
       border: none;
-      background: linear-gradient(135deg, #7b2cbf, #5a189a);
+      background: linear-gradient(135deg, #ff7e00, #ff4500);
       color: #fff;
       font-size: 16px;
       font-weight: bold;
@@ -127,7 +127,8 @@
     }
 
     button:hover {
-      background: linear-gradient(135deg, #9d4edd, #7b2cbf);
+      background: linear-gradient(135deg, #ff914d, #ff5c33);
+      box-shadow: 0 0 12px rgba(255, 126, 0, 0.8);
     }
 
     .links {
@@ -136,7 +137,7 @@
     }
 
     .links a {
-      color: #fff;
+      color: #ff914d;
       text-decoration: underline;
       font-size: 14px;
     }
@@ -147,7 +148,7 @@
     <h2>Register</h2>
     <form>
       <div class="input-group">
-        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Username" required>
       </div>
       <div class="input-group">
         <input type="email" placeholder="Email" required>

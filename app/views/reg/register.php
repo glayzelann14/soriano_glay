@@ -12,7 +12,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb, #3b82f6);
+      background: linear-gradient(135deg, #4c1d95, #6d28d9, #7c3aed, #8b5cf6);
       background-size: 400% 400%;
       animation: gradientFlow 12s ease infinite;
       font-family: "Poppins", sans-serif;
@@ -25,18 +25,18 @@
     }
 
     .glass-container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      position: relative;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 18px;
       padding: 40px 35px;
       width: 420px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2),
-                  inset 0 0 30px rgba(255, 255, 255, 0.08);
-      position: relative;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       overflow: hidden;
     }
 
+    /* shimmering wave overlay */
     .glass-container::before {
       content: "";
       position: absolute;
@@ -44,28 +44,34 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-      animation: shine 8s linear infinite;
+      background: repeating-radial-gradient(
+        circle at 0 0,
+        rgba(255,255,255,0.15),
+        transparent 60px
+      );
+      animation: wave 8s linear infinite;
+      z-index: 1;
     }
 
-    @keyframes shine {
+    @keyframes wave {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
 
     h2 {
       text-align: center;
-      font-size: 1.9em;
+      font-size: 2em;
       font-weight: 600;
       color: #fff;
       margin-bottom: 25px;
-      z-index: 2;
       position: relative;
+      z-index: 2;
     }
 
     .input-container {
       position: relative;
       margin-bottom: 18px;
+      z-index: 2;
     }
 
     .input-container input {
@@ -81,8 +87,8 @@
     }
 
     .input-container input:focus {
-      border-color: #60a5fa;
-      box-shadow: 0 0 6px rgba(96, 165, 250, 0.5);
+      border-color: #c084fc;
+      box-shadow: 0 0 6px rgba(192, 132, 252, 0.6);
     }
 
     .input-container input::placeholder {
@@ -95,7 +101,7 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
-      color: #e2e8f0;
+      color: #f3e8ff;
       font-size: 1.1em;
     }
 
@@ -106,24 +112,28 @@
       font-weight: 600;
       border: none;
       border-radius: 10px;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
       color: white;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
+      z-index: 2;
+      position: relative;
     }
 
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 6px 15px rgba(124, 58, 237, 0.5);
     }
 
     .group {
       text-align: center;
       margin-top: 18px;
+      z-index: 2;
+      position: relative;
     }
 
     .group a {
-      color: #93c5fd;
+      color: #d8b4fe;
       text-decoration: none;
       font-weight: 500;
     }

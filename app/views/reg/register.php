@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,104 +36,65 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(255, 255, 255, 0.2) 40%,
-        rgba(255, 255, 255, 0.05) 70%
-      );
-      transform: rotate(25deg);
-      animation: shimmer 6s infinite linear;
+      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+      animation: shine 6s linear infinite;
     }
 
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) rotate(25deg); }
-      100% { transform: translateX(100%) rotate(25deg); }
+    @keyframes shine {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
-    .password-box {
-      position: relative;
-    }
-    .password-box input {
-      padding-right: 40px; /* space for eye icon */
-    }
-    .password-box i {
+    .eye-icon {
       position: absolute;
       right: 12px;
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
-      color: #f472b6;
-      font-size: 1rem;
     }
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center px-4 text-white font-sans">
-
-  <div class="w-full max-w-6xl flex flex-col md:flex-row items-center gap-10">
+<body class="flex items-center justify-center min-h-screen">
+  <div class="glass rounded-2xl p-10 w-full max-w-md text-white">
     
-    <!-- Left Side: Welcome Container -->
-    <div class="flex-1 glass rounded-2xl p-10 text-center md:text-left shadow-2xl">
-      <h1 class="text-5xl font-extrabold mb-4">Welcome</h1>
-      <p class="text-xl text-gray-200 mb-3">to Student Dashboard</p>
-      <p class="text-gray-300">Register now to access your personalized student portal, track progress, and manage your account seamlessly.</p>
+    <!-- Welcome Container -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-extrabold drop-shadow-lg">Welcome to Student Dashboard</h1>
+      <p class="mt-2 text-gray-300">Create your account to get started.</p>
     </div>
 
-    <!-- Right Side: Register Form -->
-    <div class="flex-1 glass rounded-2xl shadow-2xl p-8">
-      <h2 class="text-2xl font-bold mb-6 text-center">Create Account</h2>
-      
-      <form method="post" action="<?=site_url('reg/register');?>" class="space-y-4">
-        <div>
-          <input type="text" name="username" placeholder="Username" required
-            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
-        </div>
-        <div>
-          <input type="email" name="email" placeholder="Email" required
-            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
-        </div>
-        <div class="password-box">
-          <input type="password" id="password" name="password" placeholder="Password" required
-            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+    <!-- Register Form -->
+    <form>
+      <div class="mb-4 relative">
+        <input type="text" placeholder="Username" class="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      </div>
+      <div class="mb-4 relative">
+        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      </div>
+      <div class="password-box">
+          <input type="password" id="password" name="password" placeholder="Password" required>
           <i class="fa-solid fa-eye" id="togglePassword"></i>
         </div>
+
         <div class="password-box">
-          <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required
-            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+          <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
           <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
-        </div>
-
-        <button type="submit"
-          class="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:opacity-90 text-white font-bold py-2 rounded-lg shadow-lg transition">
-          Register
-        </button>
-      </form>
-
-      <div class="text-center mt-4">
-        <p>Already have an account? 
-          <a href="<?=site_url('reg/login');?>" class="text-pink-400 hover:underline">Login</a>
-        </p>
       </div>
-    </div>
+
+      <button type="submit" class="w-full py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold">Register</button>
+      <p class="text-center text-sm mt-4">Already have an account? <a href="#" class="text-purple-400 hover:underline">Login</a></p>
+    </form>
   </div>
 
   <script>
-    function toggleVisibility(toggleId, inputId) {
-      const toggle = document.getElementById(toggleId);
-      const input = document.getElementById(inputId);
-
-      toggle.addEventListener('click', function () {
-        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-        input.setAttribute('type', type);
+    function togglePassword() {
+      const password = document.getElementById("password");
+      password.type = password.type === "password" ? "text" : "password";
+      input.setAttribute('type', type);
         this.classList.toggle('fa-eye');
         this.classList.toggle('fa-eye-slash');
-      });
     }
-
-    toggleVisibility('togglePassword', 'password');
-    toggleVisibility('toggleConfirmPassword', 'confirmPassword');
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>
 </html>
-
+```

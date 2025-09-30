@@ -122,13 +122,14 @@ body {
 <div class="relative">
   <select name="role" required
           class="w-full appearance-none px-5 py-4 border border-white/50 bg-white/20 rounded-2xl text-white text-lg focus:ring-2 focus:ring-orange-500 focus:outline-none cursor-pointer">
-    <option value="" disabled selected>Select Role</option>
-    <option value="user">User</option>
-    <option value="admin">Admin</option>
+    <option value="" disabled selected class="bg-white/20 text-white">Select Role</option>
+    <option value="user" class="bg-white/20 text-white">User</option>
+    <option value="admin" class="bg-white/20 text-white">Admin</option>
   </select>
   <!-- Caret icon -->
   <i class="fa-solid fa-caret-down absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white"></i>
 </div>
+
 
 
     <!-- Password -->

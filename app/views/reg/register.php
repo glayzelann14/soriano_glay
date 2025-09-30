@@ -81,16 +81,8 @@
       <input type="email" name="email" required
         class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
     </div>
-    <div class="password-box">
-      <label class="block text-sm font-medium mb-1">Password</label>
-      <div class="relative">
-        <input type="password" id="password" name="password" required
-          class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
-        <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-pink-400" id="togglePassword"></i>
-      </div>
-    </div>
     
-    ```html
+  
 <div class="password-box">
   <label class="block text-sm font-medium mb-1">Password</label>
   <div class="relative">

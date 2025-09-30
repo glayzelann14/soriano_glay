@@ -105,23 +105,24 @@
       color: #f472b6;
     }
 
-    button {
+    .btn-login {
       width: 100%;
+      background: linear-gradient(to right, #fb923c, #f97316, #ea580c);
       padding: 14px;
+      border-radius: 12px;
       font-size: 1.1em;
       font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(to right, #f97316, #f59e0b, #f97316);
       color: white;
+      border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(255, 115, 0, 0.4);
+      transition: all 0.4s ease-in-out;
     }
 
-    button:hover {
+    .btn-login:hover {
+      background: linear-gradient(to right, #a855f7, #f97316, #ec4899);
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 165, 0, 0.5);
+      box-shadow: 0 6px 20px rgba(255, 115, 0, 0.6);
     }
 
     .group {
@@ -130,7 +131,7 @@
     }
 
     .group a {
-      color: #f472b6;
+      color: #f97316;
       text-decoration: none;
       font-weight: 500;
     }
@@ -167,7 +168,7 @@
         <input type="password" placeholder="Password" name="password" id="password" required>
         <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" class="btn-login">Login</button>
     </form>
 
     <div class="group">

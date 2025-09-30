@@ -196,28 +196,28 @@
 
       <!-- Table -->
 <div class="overflow-x-auto rounded-xl mt-4 shadow-lg">
-  <table class="w-full text-center border-collapse border border-white/30">
+  <table class="w-full text-center border-collapse border border-orange-400">
     <thead>
       <tr class="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
-        <th class="py-3 px-4 border border-white/30">ID</th>
-        <th class="py-3 px-4 border border-white/30">Username</th>
-        <th class="py-3 px-4 border border-white/30">Email</th>
-        <th class="py-3 px-4 border border-white/30">Role</th>
-        <th class="py-3 px-4 border border-white/30">Action</th>
+        <th class="py-3 px-4 border border-orange-300">ID</th>
+        <th class="py-3 px-4 border border-orange-300">Username</th>
+        <th class="py-3 px-4 border border-orange-300">Email</th>
+        <th class="py-3 px-4 border border-orange-300">Role</th>
+        <th class="py-3 px-4 border border-orange-300">Action</th>
       </tr>
     </thead>
     <tbody class="bg-white text-gray-800">
       <?php foreach(html_escape($users) as $user): ?>
         <tr class="hover:bg-orange-100 transition duration-200
           <?php if($logged_in_user['id'] === $user['id']) echo 'bg-orange-50'; ?>">
-          <td class="py-3 px-4 border border-white/30"><?=($user['id']);?></td>
-          <td class="py-3 px-4 border border-white/30"><?=($user['username']);?></td>
-          <td class="py-3 px-4 border border-white/30"><?=($user['email']);?></td>
-          <td class="py-3 px-4 border border-white/30 font-medium"><?=($user['role']);?></td>
-          <td class="py-3 px-4 border border-white/30 space-x-2">
+          <td class="py-3 px-4 border border-orange-300"><?=($user['id']);?></td>
+          <td class="py-3 px-4 border border-orange-300"><?=($user['username']);?></td>
+          <td class="py-3 px-4 border border-orange-300"><?=($user['email']);?></td>
+          <td class="py-3 px-4 border border-orange-300 font-medium"><?=($user['role']);?></td>
+          <td class="py-3 px-4 border border-orange-300 space-x-2">
             <?php if($logged_in_user['role'] === 'admin'): ?>
               <a href="<?=site_url('users/update/'.$user['id']);?>" 
-                 class="px-3 py-1 text-sm font-medium rounded-lg bg-orange-500 hover:bg-orange-600 transition">
+                 class="px-3 py-1 text-sm font-medium rounded-lg bg-pink-500 hover:bg-pink-600 transition">
                  ✏️ Update
               </a>
               <a href="<?=site_url('users/delete/'.$user['id']);?>" 
@@ -234,7 +234,6 @@
     </tbody>
   </table>
 </div>
-
 
 
       <!-- Pagination -->

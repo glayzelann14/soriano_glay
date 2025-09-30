@@ -109,21 +109,17 @@
         </div>
       </div>
 
-      <!-- Role (admin only) -->
-<?php if(!empty($logged_in_user) && $logged_in_user['role']==='admin'): ?>
-<div>
+      <div class="relative">
   <select name="role" required
-          class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
-                 focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-400 appearance-none">
-    <option value="" disabled selected>Select Role</option>
-    <option value="user" class="text-gray-900">User</option>
-    <option value="admin" class="text-gray-900">Admin</option>
+          class="w-full appearance-none px-5 py-4 border border-white/bg-transparent rounded-xl">
+    <option value="" disabled selected class="bg-white/20 text-white">Select Role</option>
+    <option value="user" class="bg-white/20 text-white">User</option>
+    <option value="admin" class="bg-white/20 text-white">Admin</option>
   </select>
+  <!-- Caret icon -->
+  <i class="fa-solid fa-caret-down absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white"></i>
 </div>
-<?php else: ?>
-  <input type="hidden" name="role" value="<?= $user['role']; ?>">
-<?php endif; ?>
-
+    
       <!-- Submit Button -->
       <button type="submit"
               class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 

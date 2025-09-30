@@ -121,7 +121,7 @@ body {
 
 <div class="relative">
   <select name="role" required
-          class="w-full appearance-none px-5 py-4 border border-white/50 bg-white/20 rounded-2xl text-white text-lg focus:ring-2 focus:ring-orange-500 focus:outline-none cursor-pointer">
+          class="w-full appearance-none px-5 py-4 border border-white/bg-transparent rounded-xl">
     <option value="" disabled selected class="bg-white/20 text-white">Select Role</option>
     <option value="user" class="bg-white/20 text-white">User</option>
     <option value="admin" class="bg-white/20 text-white">Admin</option>

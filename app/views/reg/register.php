@@ -147,7 +147,7 @@
   <div class="glass">
     <h2>Register</h2>
     <!-- Register form with route -->
-    <form action="<?= base_url('reg/submit'); ?>" method="POST">
+    <form action="<?= base_url('reg/register'); ?>" method="POST">
       <div class="input-group">
         <input type="text" name="username" placeholder="Username" required>
       </div>
@@ -161,7 +161,7 @@
       <button type="submit">Register</button>
     </form>
     <div class="links">
-      <a href="<?= base_url('login'); ?>">Already have an account? Login</a>
+      <p>Already have an account? <a href="<?= site_url('reg/login'); ?>">Login here</a></p>
     </div>
   </div>
 

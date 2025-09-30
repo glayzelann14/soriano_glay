@@ -26,15 +26,16 @@ body {
 .glass {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.15),
               inset 0 0 20px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
   padding: 40px 40px;
   border-radius: 2rem;
   width: 100%;
   max-width: 500px;
-  position: relative;
-  overflow: hidden;
 }
 .glass::before {
   content: "";
@@ -43,7 +44,12 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.05) 70%);
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0.05) 70%
+  );
   transform: rotate(25deg);
   animation: shimmer 6s infinite linear;
 }
@@ -51,28 +57,35 @@ body {
   0% { transform: translateX(-100%) rotate(25deg); }
   100% { transform: translateX(100%) rotate(25deg); }
 }
+.password-box { position: relative; }
+.password-box i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #fb923c;
+}
 input, select {
   width: 100%;
-  padding: 16px 20px;
-  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  border-radius: 0.75rem;
   background: rgba(255,255,255,0.2);
   border: 1px solid rgba(255,255,255,0.3);
   color: white;
+  font-size: 1rem;
   outline: none;
-  margin-bottom: 24px;
-  font-size: 1.125rem; /* text-lg */
 }
 input::placeholder, select::placeholder { color: rgba(255,255,255,0.7); }
-input:focus, select:focus { border-color: #f472b6; box-shadow: 0 0 8px rgba(244,114,182,0.5); }
-.password-box { position: relative; }
-.password-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #f472b6; font-size: 1.25rem; }
+input:focus, select:focus { border-color: #fb923c; box-shadow: 0 0 6px rgba(251,146,60,0.5); }
 .btn-update {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   font-weight: bold;
-  font-size: 1.125rem;
+  font-size: 1rem;
   border: none;
-  border-radius: 16px;
+  border-radius: 0.75rem;
   background: linear-gradient(to right, #f97316, #fb923c, #f97316);
   color: white;
   cursor: pointer;
@@ -86,7 +99,7 @@ input:focus, select:focus { border-color: #f472b6; box-shadow: 0 0 8px rgba(244,
   display: block;
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 16px;
   color: #fb923c;
   font-weight: bold;
   text-decoration: none;
@@ -98,12 +111,14 @@ input:focus, select:focus { border-color: #f472b6; box-shadow: 0 0 8px rgba(244,
 <body>
 
 <div class="glass">
-  <h2 class="text-3xl font-bold text-center mb-8">📝 Update User</h2>
+  <h2 class="text-2xl font-bold text-center mb-6">📝 Update User</h2>
 
   <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST">
+
     <div>
       <input type="text" name="username" value="<?= html_escape($user['username'])?>" placeholder="Username" required>
     </div>
+
     <div>
       <input type="email" name="email" value="<?= html_escape($user['email'])?>" placeholder="Email" required>
     </div>
@@ -118,7 +133,7 @@ input:focus, select:focus { border-color: #f472b6; box-shadow: 0 0 8px rgba(244,
 
       <div class="password-box">
         <input type="password" name="password" id="password" placeholder="Password" required>
-        <i class="fa-solid fa-eye" id="togglePassword"></i>
+        <i class="fa-solid fa-eye" onclick="toggleVisibility('password', this)"></i>
       </div>
     <?php endif; ?>
 
@@ -129,15 +144,17 @@ input:focus, select:focus { border-color: #f472b6; box-shadow: 0 0 8px rgba(244,
 </div>
 
 <script>
-const togglePassword = document.getElementById('togglePassword');
-const password = document.getElementById('password');
-if(togglePassword && password){
-  togglePassword.addEventListener('click', function(){
-    const type = password.getAttribute('type')==='password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    this.classList.toggle('fa-eye');
-    this.classList.toggle('fa-eye-slash');
-  });
+function toggleVisibility(inputId, icon) {
+  const input = document.getElementById(inputId);
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>

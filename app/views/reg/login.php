@@ -83,6 +83,7 @@
       color: white;
       outline: none;
       transition: all 0.3s ease;
+      font-size: 1em;
     }
 
     .glass input::placeholder {
@@ -108,18 +109,19 @@
       width: 100%;
       padding: 14px;
       font-size: 1.1em;
-      font-weight: 600;
+      font-weight: 700;
       border: none;
       border-radius: 12px;
-      background: linear-gradient(to right, #f472b6, #f59e0b, #f97316);
+      background: linear-gradient(to right, #f97316, #f59e0b, #f97316);
       color: white;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
     }
 
     button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(255,255,255,0.2);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 165, 0, 0.5);
     }
 
     .group {

@@ -109,15 +109,20 @@
         </div>
       </div>
 
-      <!-- Role -->
-      <div>
-        <select name="role" required
-                class="w-full px-5 py-4 border border-white/50 bg-white/40 rounded-2xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-900 text-lg transition duration-200">
-          <option value="" disabled selected>Select Role</option>
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
-        </select>
-      </div>
+      <!-- Role (admin only) -->
+<?php if(!empty($logged_in_user) && $logged_in_user['role']==='admin'): ?>
+<div>
+  <select name="role" required
+          class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
+                 focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-400 appearance-none">
+    <option value="" disabled selected>Select Role</option>
+    <option value="user" class="text-gray-900">User</option>
+    <option value="admin" class="text-gray-900">Admin</option>
+  </select>
+</div>
+<?php else: ?>
+  <input type="hidden" name="role" value="<?= $user['role']; ?>">
+<?php endif; ?>
 
       <!-- Submit Button -->
       <button type="submit"

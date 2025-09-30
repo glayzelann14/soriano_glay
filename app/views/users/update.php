@@ -119,20 +119,17 @@ body {
                 focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
 </div>
 
-<!-- Role (admin only) -->
-<?php if(!empty($logged_in_user) && $logged_in_user['role']==='admin'): ?>
-<div>
+<div class="relative">
   <select name="role" required
-          class="w-full px-4 py-3 border border-white/50 bg-transparent rounded-xl
-                 focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-400 appearance-none">
+          class="w-full appearance-none px-5 py-4 border border-white/50 bg-white/20 rounded-2xl text-white text-lg focus:ring-2 focus:ring-orange-500 focus:outline-none cursor-pointer">
     <option value="" disabled selected>Select Role</option>
-    <option value="user" class="text-gray-900">User</option>
-    <option value="admin" class="text-gray-900">Admin</option>
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
   </select>
+  <!-- Caret icon -->
+  <i class="fa-solid fa-caret-down absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white"></i>
 </div>
-<?php else: ?>
-  <input type="hidden" name="role" value="<?= $user['role']; ?>">
-<?php endif; ?>
+
 
     <!-- Password -->
 <div class="relative">

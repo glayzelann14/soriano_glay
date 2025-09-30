@@ -102,7 +102,7 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
-      color: #f472b6;
+      color: #f97316;
     }
 
     .btn-login {

@@ -165,19 +165,6 @@
   </style>
 </head>
 
-<!-- Pagination HTML Example -->
-<div class="pagination">
-  <?php
-    $totalPages = 10; // halimbawa
-    $currentPage = $_GET['page'] ?? 1;
-    for ($i = 1; $i <= $totalPages; $i++):
-      if ($i == $currentPage):
-  ?>
-      <strong><?= $i ?></strong>
-  <?php else: ?>
-      <a href="?page=<?= $i ?>"><?= $i ?></a>
-  <?php endif; endfor; ?>
-</div>
 
 <body>
   <!-- Navbar -->

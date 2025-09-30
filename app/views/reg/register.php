@@ -6,184 +6,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    /* Animated gradient background */
     body {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #4c1d95, #6d28d9, #7c3aed, #8b5cf6);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
       background-size: 400% 400%;
-      animation: gradientFlow 12s ease infinite;
-      font-family: "Poppins", sans-serif;
+      animation: gradientMove 15s ease infinite;
     }
 
-    @keyframes gradientFlow {
+    @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .glass-container {
-      position: relative;
+    /* Glassy shimmering effect */
+    .glass {
+      width: 400px;
+      padding: 40px;
+      border-radius: 15px;
       background: rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 40px 35px;
-      width: 420px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.05);
+      position: relative;
       overflow: hidden;
+      color: #fff;
     }
 
-    /* shimmering wave overlay */
-    .glass-container::before {
+    .glass::before {
       content: "";
       position: absolute;
       top: -50%;
       left: -50%;
       width: 200%;
       height: 200%;
-      background: repeating-radial-gradient(
-        circle at 0 0,
-        rgba(255,255,255,0.15),
-        transparent 60px
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.2) 40%,
+        rgba(255, 255, 255, 0.05) 70%
       );
-      animation: wave 8s linear infinite;
-      z-index: 1;
+      transform: rotate(25deg);
+      animation: shimmer 6s infinite linear;
     }
 
-    @keyframes wave {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(25deg); }
+      100% { transform: translateX(100%) rotate(25deg); }
     }
 
-    h2 {
+    .glass h2 {
       text-align: center;
-      font-size: 2em;
-      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: bold;
       color: #fff;
-      margin-bottom: 25px;
-      position: relative;
-      z-index: 2;
     }
 
-    .input-container {
+    .input-group {
+      margin-bottom: 20px;
       position: relative;
-      margin-bottom: 18px;
-      z-index: 2;
     }
 
-    .input-container input {
+    .input-group input {
       width: 100%;
-      padding: 13px 45px 13px 18px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
+      padding: 12px 40px 12px 15px;
+      border-radius: 8px;
+      border: none;
       outline: none;
-      font-size: 1em;
-      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 15px;
     }
 
-    .input-container input:focus {
-      border-color: #c084fc;
-      box-shadow: 0 0 6px rgba(192, 132, 252, 0.6);
+    .input-group input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    .input-container input::placeholder {
-      color: rgba(255,255,255,0.7);
-    }
-
-    .input-container i {
+    .input-group .toggle-password {
       position: absolute;
-      right: 15px;
       top: 50%;
+      right: 12px;
       transform: translateY(-50%);
       cursor: pointer;
-      color: #f3e8ff;
-      font-size: 1.1em;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 16px;
     }
 
     button {
       width: 100%;
-      padding: 14px;
-      font-size: 1.1em;
-      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
       border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #7c3aed, #6d28d9);
-      color: white;
+      background: linear-gradient(135deg, #7b2cbf, #5a189a);
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-      z-index: 2;
-      position: relative;
+      transition: 0.3s ease;
     }
 
     button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(124, 58, 237, 0.5);
+      background: linear-gradient(135deg, #9d4edd, #7b2cbf);
     }
 
-    .group {
+    .links {
       text-align: center;
-      margin-top: 18px;
-      z-index: 2;
-      position: relative;
+      margin-top: 15px;
     }
 
-    .group a {
-      color: #d8b4fe;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .group a:hover {
+    .links a {
+      color: #fff;
       text-decoration: underline;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div class="glass-container">
-    <h2>Create Account</h2>
+  <div class="glass">
+    <h2>Register</h2>
     <form>
-      <div class="input-container">
-        <input type="text" placeholder="Username" required>
+      <div class="input-group">
+        <input type="text" placeholder="Full Name" required>
       </div>
-      <div class="input-container">
+      <div class="input-group">
         <input type="email" placeholder="Email" required>
       </div>
-      <div class="input-container">
+      <div class="input-group">
         <input type="password" id="password" placeholder="Password" required>
-        <i class="fa-solid fa-eye" id="togglePassword"></i>
-      </div>
-      <div class="input-container">
-        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-        <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
+        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
       </div>
       <button type="submit">Register</button>
-      <div class="group">
-        <p>Already have an account? <a href="#">Login here</a></p>
-      </div>
     </form>
+    <div class="links">
+      <a href="#">Already have an account? Login</a>
+    </div>
   </div>
 
   <script>
-    function toggleVisibility(toggleId, inputId) {
-      const toggle = document.getElementById(toggleId);
-      const input = document.getElementById(inputId);
-
-      toggle.addEventListener("click", function () {
-        const type = input.getAttribute("type") === "password" ? "text" : "password";
-        input.setAttribute("type", type);
-        this.classList.toggle("fa-eye");
-        this.classList.toggle("fa-eye-slash");
-      });
+    function togglePassword() {
+      const password = document.getElementById("password");
+      const icon = document.querySelector(".toggle-password");
+      if (password.type === "password") {
+        password.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        password.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
     }
-
-    toggleVisibility("togglePassword", "password");
-    toggleVisibility("toggleConfirmPassword", "confirmPassword");
   </script>
 </body>
 </html>
-

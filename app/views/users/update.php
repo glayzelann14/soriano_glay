@@ -30,7 +30,7 @@
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.15),
                   inset 0 0 20px rgba(255, 255, 255, 0.05);
-      padding: 40px 30px;
+      padding: 35px 25px;
       border-radius: 2rem;
       width: 100%;
       max-width: 400px;
@@ -70,13 +70,14 @@
     }
     input, select {
       width: 100%;
-      padding: 12px 15px;
+      padding: 14px 16px;
       border-radius: 12px;
       background: rgba(255,255,255,0.2);
       border: 1px solid rgba(255,255,255,0.3);
       color: white;
       outline: none;
       margin-bottom: 15px;
+      font-size: 1rem;
     }
     input::placeholder, select::placeholder {
       color: rgba(255,255,255,0.7);
@@ -85,11 +86,12 @@
       border-color: #f472b6;
       box-shadow: 0 0 6px rgba(244,114,182,0.5);
     }
-    button {
+    .btn-update {
       width: 100%;
-      padding: 14px;
-      margin-top: 5px;
+      padding: 16px;
+      margin-top: 10px;
       font-weight: bold;
+      font-size: 1.1rem;
       border: none;
       border-radius: 12px;
       background: linear-gradient(to right, #f97316, #fb923c, #f97316);
@@ -97,32 +99,29 @@
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
-    button:hover {
+    .btn-update:hover {
       transform: scale(1.05);
-      background: linear-gradient(to right, #fb923c, #f97316, #fb923c);
+      background: linear-gradient(to right, #fb923c, #f97316, #f472b6);
     }
-    .return-btn {
+    .return-link {
       display: block;
       width: 100%;
       text-align: center;
       margin-top: 15px;
-      padding: 12px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #f97316, #fb923c);
-      text-decoration: none;
+      color: #fb923c;
       font-weight: bold;
-      color: white;
-      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
-    .return-btn:hover {
-      background: linear-gradient(to right, #fb923c, #f97316);
+    .return-link:hover {
+      color: #f97316;
     }
   </style>
 </head>
 <body>
 
   <div class="glass">
-    <h2 class="text-2xl font-bold text-center mb-6">📝 Update User</h2>
+    <h2 class="text-2xl font-bold text-center mb-6">Update User</h2>
 
     <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST">
       <div>
@@ -146,10 +145,10 @@
         </div>
       <?php endif; ?>
 
-      <button type="submit">Update User</button>
+      <button type="submit" class="btn-update">Update User</button>
     </form>
 
-    <a href="<?=site_url('/users');?>" class="return-btn">⬅ Return to Home</a>
+    <a href="<?=site_url('/users');?>" class="return-link">⬅ Return to Home</a>
   </div>
 
   <script>

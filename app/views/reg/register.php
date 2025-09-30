@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,19 +61,18 @@
       transform: translateY(-50%);
       cursor: pointer;
       color: #f472b6;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body class="min-h-screen flex items-center justify-center px-4 text-white font-sans">
 
-  <div class="w-full max-w-4xl flex flex-col md:flex-row items-center gap-10 bg-transparent">
+  <div class="w-full max-w-5xl flex flex-col md:flex-row items-center gap-10 bg-transparent">
     
     <!-- Left Side: Welcome -->
     <div class="flex-1 text-center md:text-left">
-      <h1 class="text-5xl font-bold mb-4">Welcome!</h1>
-      <p class="text-gray-200 max-w-md">
-        Create an account to manage your profile and explore features easily.
-      </p>
+      <h1 class="text-6xl font-extrabold mb-4">Welcome</h1>
+      <p class="text-xl text-gray-200">to Student Dashboard</p>
     </div>
 
     <!-- Right Side: Register Form -->
@@ -94,13 +93,13 @@
         <div class="password-box">
           <label class="block text-sm font-medium mb-1">Password</label>
           <input type="password" id="password" name="password" required
-            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+            class="w-full px-4 py-2 pr-10 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
           <i class="fa-solid fa-eye" id="togglePassword"></i>
         </div>
         <div class="password-box">
           <label class="block text-sm font-medium mb-1">Confirm Password</label>
           <input type="password" id="confirmPassword" name="confirm_password" required
-            class="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+            class="w-full px-4 py-2 pr-10 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
           <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
         </div>
 
@@ -137,4 +136,4 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 </body>
 </html>
-```
+

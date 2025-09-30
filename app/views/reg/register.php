@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +67,6 @@
 
 
     <!-- Right Side: Register Form -->
-    ```html
 <div class="flex-1 glass rounded-2xl shadow-2xl p-8 max-w-md w-full">
   <h2 class="text-2xl font-bold mb-6 text-center">Create Account</h2>
   
@@ -99,6 +97,9 @@
         <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-pink-400" id="toggleConfirmPassword"></i>
       </div>
     </div>
+
+    <!-- Hidden role input -->
+    <input type="hidden" name="role" value="user">
 
     <button type="submit"
       class="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:opacity-90 text-white font-bold py-2 rounded-lg shadow-lg transition">

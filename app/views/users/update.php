@@ -68,13 +68,13 @@ body {
 }
 input, select {
   width: 100%;
-  padding: 14px 18px; /* larger padding */
+  padding: 14px 18px;
   margin-bottom: 18px;
   border-radius: 0.75rem;
   background: rgba(255,255,255,0.2);
   border: 1px solid rgba(255,255,255,0.3);
   color: white;
-  font-size: 1.1rem; /* larger font for placeholder */
+  font-size: 1.1rem;
   outline: none;
 }
 input::placeholder, select::placeholder { color: rgba(255,255,255,0.7); font-size:1.1rem; }
@@ -124,19 +124,26 @@ input:focus, select:focus { border-color: #fb923c; box-shadow: 0 0 6px rgba(251,
       <input type="email" name="email" value="<?= html_escape($user['email'])?>" placeholder="Email" required>
     </div>
 
-    <?php if(!empty($logged_in_user) && $logged_in_user['role'] === 'admin'): ?>
+    <!-- Role -->
       <div>
-        <select name="role" required>
-          <option value="user" <?= $user['role']==='user'?'selected':'';?>>User</option>
-          <option value="admin" <?= $user['role']==='admin'?'selected':'';?>>Admin</option>
+        <select name="role" required
+                class="w-full px-5 py-4 border border-white/50 bg-white/40 rounded-2xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-900 text-lg transition duration-200">
+          <option value="" disabled selected>Select Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
         </select>
       </div>
 
-      <div class="password-box">
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <i class="fa-solid fa-eye" onclick="toggleVisibility('password', this)"></i>
-      </div>
-    <?php endif; ?>
+    <!-- Password fields -->
+    <div class="password-box">
+      <input type="password" name="password" id="password" placeholder="Password">
+      <i class="fa-solid fa-eye" onclick="toggleVisibility('password', this)"></i>
+    </div>
+
+    <div class="password-box">
+      <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm Password">
+      <i class="fa-solid fa-eye" onclick="toggleVisibility('confirmPassword', this)"></i>
+    </div>
 
     <button type="submit" class="btn-update">Update User</button>
   </form>

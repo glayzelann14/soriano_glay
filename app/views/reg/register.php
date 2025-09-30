@@ -18,6 +18,7 @@
       background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
       background-size: 400% 400%;
       animation: gradientMove 15s ease infinite;
+      margin: 0;
     }
 
     @keyframes gradientMove {
@@ -28,8 +29,8 @@
 
     /* Glassy shimmering effect */
     .glass {
-      width: 400px;
-      padding: 40px;
+      width: 380px;
+      padding: 35px;
       border-radius: 15px;
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(12px);
@@ -39,6 +40,7 @@
       position: relative;
       overflow: hidden;
       color: #fff;
+      box-sizing: border-box;
     }
 
     .glass::before {
@@ -80,15 +82,24 @@
       width: 100%;
       padding: 12px 40px 12px 15px;
       border-radius: 8px;
-      border: none;
+      border: 2px solid transparent;
       outline: none;
       background: rgba(255, 255, 255, 0.1);
       color: #fff;
       font-size: 15px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
     }
 
     .input-group input::placeholder {
       color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Highlight effect on focus */
+    .input-group input:focus {
+      border: 2px solid #9d4edd;
+      box-shadow: 0 0 10px rgba(157, 78, 221, 0.8);
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .input-group .toggle-password {
@@ -112,6 +123,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s ease;
+      box-sizing: border-box;
     }
 
     button:hover {

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
-      background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
+      background: linear-gradient(135deg, #3d001c, #4d0124, #5c012b, #6b0132);
       background-size: 400% 400%;
       animation: gradientMove 15s ease infinite;
        font-family: "Poppins", sans-serif;

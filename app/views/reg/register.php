@@ -7,8 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background: linear-gradient(135deg, #221432, #3a2257, #53317b, #6b3fa0);
-      background-size: 400% 400%;
+      background: linear-gradient(135deg, #3d001c, #4d0124, #5c012b, #6b0132);
       animation: gradientMove 15s ease infinite;
        font-family: "Poppins", sans-serif;
     }

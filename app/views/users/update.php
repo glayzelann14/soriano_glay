@@ -12,7 +12,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #3d001c, #4d0124, #5c012b, #6b0132);
+  background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
   font-family: "Poppins", sans-serif;
@@ -122,7 +122,7 @@ body {
 <div>
         <label class="block text-sm font-medium mb-1">Role</label>
         <select name="role" required
-          class="w-full px-4 py-2 rounded-lg bg-white/20 text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-500">
+          class="w-full px-4 py-2 rounded-lg bg-white/20 text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500">
           <option value="" disabled selected>Select Role</option>
           <option value="user" class="text-black">User</option>
           <option value="admin" class="text-black">Admin</option>

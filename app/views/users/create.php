@@ -109,16 +109,15 @@
         </div>
       </div>
 
-      <div class="relative">
-  <select name="role" required
-          class="w-full appearance-none px-5 py-4 border border-white/50 bg-white/20 rounded-2xl text-black text-lg focus:ring-2 focus:ring-orange-500 focus:outline-none cursor-pointer">
-    <option value="" disabled selected>Select Role</option>
-    <option value="user">User</option>
-    <option value="admin">Admin</option>
-  </select>
-  <!-- Caret icon -->
-  <i class="fa-solid fa-caret-down absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white"></i>
-</div>
+      <<div>
+        <label class="block text-sm font-medium mb-1">Role</label>
+        <select name="role" required
+          class="w-full px-4 py-2 rounded-lg bg-white/20 text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-500">
+          <option value="" disabled selected>Select Role</option>
+          <option value="user" class="text-black">User</option>
+          <option value="admin" class="text-black">Admin</option>
+        </select>
+      </div>
 
       <!-- Submit Button -->
       <button type="submit"

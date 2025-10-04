@@ -12,7 +12,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #2b0040, #3b0a60, #5a189a, #7b2cbf);
+  background: linear-gradient(135deg, #221432, #3a2257, #53317b, #6b3fa0);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
   font-family: "Poppins", sans-serif;

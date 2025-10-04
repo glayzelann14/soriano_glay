@@ -119,19 +119,6 @@ body {
                 focus:ring-2 focus:ring-orange-400 focus:outline-none text-white placeholder-gray-300 transition duration-200">
 </div>
 
-<div>
-        <label class="block text-sm font-medium mb-1">Role</label>
-        <select name="role" required
-          class="w-full px-4 py-2 rounded-lg bg-white/20 text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500">
-          <option value="" disabled selected>Select Role</option>
-          <option value="user" class="text-black">User</option>
-          <option value="admin" class="text-black">Admin</option>
-        </select>
-      </div>
-
-
-
-
     <!-- Password -->
 <div class="relative">
   <input type="password" name="password" id="password" placeholder="New Password (leave blank to keep current)"
@@ -141,6 +128,16 @@ body {
      onclick="toggleVisibility('password', this)"></i>
 </div>
 
+
+<div>
+        <label class="block text-sm font-medium mb-1">Role</label>
+        <select name="role" required
+          class="w-full px-4 py-2 rounded-lg bg-white/20 text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <option value="" disabled selected>Select Role</option>
+          <option value="user" class="text-black">User</option>
+          <option value="admin" class="text-black">Admin</option>
+        </select>
+      </div>
 
 
     <!-- Submit -->
